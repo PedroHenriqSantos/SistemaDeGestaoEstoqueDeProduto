@@ -6,9 +6,9 @@ abstract class Controller{
     private $view_var; //Carrega os dados necessários que podem ser utilizados dentro da view
 
     //Função que constroi dinamicamente as páginas sem precisar repetir código
-    public function render($view){
+    public function render($view,$header = "header"){
         $this->view_var = $this->getViewVar();
-        require_once PATH . "/App/View/Layout/header.php";
+        require_once PATH . "/App/View/Layout/" . $header . ".php";
         require_once PATH . "/App/View/Layout/menu.php";
         require_once PATH . "/App/View/" . $view . ".php";
         require_once PATH . "/App/View/Layout/footer.php";
@@ -31,11 +31,14 @@ abstract class Controller{
 
     
     //Função que redireciona para uma outra página
-    public function redirect($view){
+    public function redirectToView($view){
         header("Location: http://" . APP_HOST . "App/View/" . $view . ".php");
         exit;
     }
-
+    public function redirectToUrl($url){
+        header("Location: http://" . APP_HOST . $url);
+        exit;
+    }
     //Determina algum parâmetro ou atributo que pode ser utilizado dentro do html.
     public function setViewVar($var_name, $var_value){
         if(isset($var_name) && isset($var_value)){

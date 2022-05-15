@@ -1,7 +1,7 @@
 <?php
 
     namespace App;
-    use App\Controllers\HomeController;
+    use App\Controllers\LoginController;
 
     /* Classe responsável por determinar qual controller deve ser chamado */
     class App{
@@ -11,23 +11,32 @@
         private $action;
         private $params;
         private $controller_name;
-
+        private $controllersSet = ['user','category','product','login','cart','portfolio'];
         public function __construct(){
             $this->url();
         }
 
         /* Função que determina qual controller será chamado/ Qual ação será executada dentro do controller e qual página será carregada por meio da url*/
+        public function setLogin(){
+            if(!isset($_SESSION['logado'])){
+                session_start();
+                $_SESSION['logado'] = false;
+            }
+        }
+        
         public function run(){
 
-  
+            $this->setLogin();
             //Chamando o controller do User 
-            if($this->controller == 'user' || $this->controller == 'category' || $this->controller == 'product'){
+            
+        
+            if(in_array($this->controller,$this->controllersSet) ){
                 $this->controller_name = ucwords($this->controller) . 'Controller';
             }
             else{
-                /*$this->controller_name = "HomeController";
-                $this->controller = new HomeController();
-                $this->controller->index();*/
+                $this->controller_name = "LoginController";
+                $this->controller = new LoginController();
+                $this->controller->login();
             }
 
             $this->controller_file = PATH . '/App/Controllers/' . $this->controller_name . '.php'; //URL para encontrar o controller de

@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;
+}
+.body {
+    background-color: #E5E5E5;
+}
+
+.searchInput {
+    
+    background-color: #CC7200 !important;
+    color: white !important;
+}
+.searchInput::placeholder {
+    color: white !important;
+}
+ 
+.titleList {
+    color: #FFAB40;
+    font-weight: 800;
+
+}
+.container {
+    margin-top: 4rem;
+}
+.headerBody{
+    margin-bottom: 2rem;
+}
+.row-list{
+    text-align:center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+.row-body-info {
+    text-align: center; 
+    background-color: white; 
+    color: #FFAB40;
+}
+.row-header-list{
+    color: #824700;
+    font-weight: 700;
+    text-align: center;
+
+}
+.addButton{
+    float: right; 
+    background-color:#FFAB40 !important;
+    color: white !important;
+    transition: all 0.6;
+}
+.addButton:hover{
+    background-color:#d88d2a !important;
+}
+.fa-solid {
+    font-size: 1.2rem;
+}
+.linkButton{
+    text-decoration: none;
+}
+.fa-square-minus,.fa-pen-to-square{
+    color: #FFAB40;
+}

@@ -1,9 +1,13 @@
+<?php 
+$product = $this->view_var["product"];
+?>
 <div class="container">
     <div class="row">
-        <h1 class="titleList">Cadastro de Produto</h1>
+        <h1 class="titleList">Editar Produto</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/product/post' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/product/update' ?>" method="post" enctype="multipart/form-data">
+            <input type="text" name="id" class="hidden" placeholder="nome" value="<?= $product->getId() ?>">
             <div class="row text-center justify-content-center">
                 <a href="#" class="addImageButton justify-content-center">
                     <div class="col-12 mt-3">
@@ -13,26 +17,26 @@
                         Adicione a imagem do produto
                     </div>
                 </a>
-                <input type="file" class="inputFile" name="image" value="" />
+                <input type="file" class="inputFile" name="image"  value="<?= $product->getImage() ?>" />
             </div>
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name" class="inputAdd" placeholder="nome" value="<?= $product->getName() ?>">
                 </div>
                 <div class="col-3">
-                    <input type="description" name="description" class="inputAdd" placeholder="descrição">
+                    <input type="description" name="description" class="inputAdd" placeholder="descrição" value="<?= $product->getDescription() ?>">
                 </div>
                 <div class="col-3">
-                    <input type="text" name="price" class="inputAdd" placeholder="preço">
+                    <input type="text" name="price" class="inputAdd" placeholder="preço" value="<?= $product->getPrice() ?>">
                 </div>
                 <div class="col-3">
-                    <input type="number" name="quantity" class="inputAdd" placeholder="Quantidade">
+                    <input type="number" name="quantity" class="inputAdd" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
                 </div>
 
             </div>
             <div class="row mt-4">
                 <div class="col-4">
-                    <select class="selectAdd" name="category">
+                    <select class="selectAdd" name="category" value="<?= $product->getIdCategory() ?>">
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
                             <option value="<?= $category->getId() ?>"> <?= $category->getName() ?> </option>
@@ -43,7 +47,7 @@
 
             </div>
             <section class="enviar">
-                <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Produto</button>
+                <button class="btn buttonAdd" id="bt_save" name="bt_save">Atualizar Produto</button>
             </section>
         </form>
     </div>
@@ -53,7 +57,9 @@
     form {
         width: 100%;
     }
-
+    .hidden{
+        display: none;
+    }
     .formAdd {
         margin-top: 2rem;
     }

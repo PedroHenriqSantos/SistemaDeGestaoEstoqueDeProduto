@@ -18,7 +18,30 @@ class ProductController extends Controller
         $this->render('Layout/Product/cadastro');
         
     }
+    public function list()
+    {
+        $this->setViewVar('products',$this->get());
+        $this->render('Layout/Product/list');
+        
+    }
+    public function edit($params){
+        $id = $params[0];
+        $productDAO = new ProductDAO();
+        $product = $productDAO->findById($id);
+        $this->setViewVar('product',$product[0]); 
+        $categoryDAO = new CategoryController();
+        $this->setViewVar('categorys', $categoryDAO->get());
+        $this->render('Layout/Product/edit');
+    }
 
+    public function delete($params){
+        $productDAO = new ProductDAO();
+        $id = $params[0];
+        $product = new Product();
+        $product->setId($id);
+        $productDAO->deleteById($product);
+        $this->list();
+    }
     public function get()
     {
         $productDAO = new ProductDAO();
@@ -39,6 +62,7 @@ class ProductController extends Controller
         return $filename;
     }
     public function validateFieldsWithFile($fields) {
+
         if(!isset($_FILES["image"]["name"])){
             $this->setViewVar('error','Upload da imagem não foi possível realizar');
             return false;
@@ -50,7 +74,9 @@ class ProductController extends Controller
     {
         if (isset($_POST['bt_save'])) {
             $productDAO = new ProductDAO();
+            var_dump('B');
             if($this->validateFieldsWithFile($productDAO->getFields())){ 
+                var_dump('a');die;
                 $product = new Product();
                 $product->setName($_POST['name']);
                 $product->setDescription($_POST['description']);
@@ -59,15 +85,31 @@ class ProductController extends Controller
                 $product->setIdCategory($_POST['category']);
                 $uploadImage = $this->uploadImage($_FILES);
                 $product->setImage($uploadImage);
-                $productDAO->saveDates($product);
+                $id = $productDAO->saveDates($product);
                 $this->setViewVar('msg','Produto cadastrado com sucesso'); //Confirma que o registro foi feito com sucesso
             }
             $this->register();
         }
     }
 
-    public function update()
-    {
-        
+    public function update(){
+        if(isset($_POST['bt_save'])){
+            $productDAO = new ProductDAO();
+            $product = new Product();
+
+            if($this->validateFields($productDAO->getFields())){
+                $product->setId($_POST['id']);
+                $product->setName($_POST['name']);
+                $product->setDescription($_POST['description']);
+                $product->setPrice($_POST['price']);
+                $product->setQuantity($_POST['quantity']);
+                $product->setIdCategory($_POST['category']);
+                $uploadImage = $this->uploadImage($_FILES);
+                $product->setImage($uploadImage);
+                $productDAO->updateByID($product);
+            } 
+
+            $this->list();
+        }    
     }
 }

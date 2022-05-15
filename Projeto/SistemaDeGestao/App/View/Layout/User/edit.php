@@ -1,18 +1,23 @@
+<?php 
+$user = $this->view_var["user"];
+?>
 <div class="container">
     <div class="row">
-        <h1 class="titleList">Cadastro de usuário</h1>
+        <h1 class="titleList">Editar Usuário</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST. '/user/post' ?>" method="post"  >
+        <form action="<?= 'http://' . APP_HOST. '/user/update' ?>" method="post"  >
+            <input type="text" name="id" class="hidden" placeholder="nome" value="<?= $user->getId() ?>">
+
             <div class="row">
                 <div class="col-4">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name" class="inputAdd" placeholder="nome" value="<?= $user->getName() ?>">
                 </div>
                 <div class="col-4">
-                    <input type="password" name="password" class="inputAdd" placeholder="senha">
+                    <input type="password" name="password" class="inputAdd" placeholder="senha" value="<?= $user->getPassword() ?>">
                 </div>
                 <div class="col-4">
-                    <select  class="selectAdd" name="function"> 
+                    <select  class="selectAdd" name="function" value="<?= $user->getFunction() ?>"> 
                             <option value="MASTER"> MASTER </option>
                             <option value="NORMAL"> NORMAL </option>
                     </select>
@@ -21,14 +26,14 @@
             </div>
             <div class="row mt-4">
                 <div class="col-4">
-                    <input type="text" name="email" class="inputAdd" placeholder="email">
+                    <input type="text" name="email" class="inputAdd" placeholder="email" value="<?= $user->getEmail() ?>">
                 </div>
                 <div class="col-4">
-                    <input type="text" name="phone" class="inputAdd" placeholder="telefone">
+                    <input type="text" name="phone" class="inputAdd" placeholder="telefone" value="<?= $user->getPhone() ?>">
                 </div>
             </div>
             <section class="enviar">
-                <button class="btn buttonAdd"  id="bt_save" name="bt_save" >Cadastrar Categoria</button>
+                <button class="btn buttonAdd"  id="bt_save" name="bt_save" >Atualizar Usuário</button>
             </section>
         </form>
     </div>
@@ -38,7 +43,9 @@
     form {
         width: 100%;
     }
-
+    .hidden{
+        display: none;
+    }
     .formAdd {
         margin-top: 2rem;
     }

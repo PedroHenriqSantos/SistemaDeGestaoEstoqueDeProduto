@@ -1,16 +1,20 @@
+<?php 
+$category = $this->view_var["category"];
+?>
 <div class="container">
     <div class="row">
-        <h1 class="titleList">Cadastro de Categoria</h1>
+        <h1 class="titleList">Editar Categoria</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/category/post' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/category/update' ?>" method="post" enctype="multipart/form-data">
+            <input type="text" name="id" class="hidden" placeholder="nome" value="<?= $category->getId() ?>">
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name" class="inputAdd"  value="<?= $category->getName() ?>" placeholder="nome"/>
                 </div>
 
                 <section class="enviar">
-                    <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Categoria</button>
+                    <button class="btn buttonAdd" id="bt_save" name="bt_save">Atualizar Categoria</button>
                 </section>
             </div>
         </form>
@@ -21,7 +25,9 @@
     form {
         width: 100%;
     }
-
+    .hidden{
+        display: none;
+    }
     .formAdd {
         margin-top: 2rem;
     }
