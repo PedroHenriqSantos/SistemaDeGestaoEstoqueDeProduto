@@ -7,9 +7,9 @@ $products = $this->view_var["products"];
             <h1 class="titleList">Lista de Produtos</h1>
         </div>
         <div class="col-4">
-            <div class="form-outline barra-pesquisa">
+            <form class="form-outline barra-pesquisa">
                 <input type="search" id="form1" class="searchInput form-control " placeholder="Pesquisar código de produto" aria-label="Search" />
-            </div>
+            </form>
         </div>
     </div>
     <!--Tabela Produtos-->
@@ -52,7 +52,7 @@ $products = $this->view_var["products"];
                 <div class="col-2">
                     <p></p>
                 </div>
-                <div class="col-2"> 
+                <div class="col-2">
                     <a class="linkButton" href="<?= 'http://' . APP_HOST . '/product/delete/' . $product->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
                     <a class="linkButton" href="<?= 'http://' . APP_HOST . '/product/edit/' . $product->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
                 </div>

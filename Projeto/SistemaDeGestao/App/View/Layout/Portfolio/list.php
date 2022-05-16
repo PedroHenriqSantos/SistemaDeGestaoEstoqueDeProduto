@@ -36,6 +36,7 @@
 
 
 <style>
+    /*
     main {
         margin-top: 100px;
     }
@@ -53,7 +54,7 @@
         font-weight: 600;
         font-size: 30px;
         line-height: 60px;
-        /* identical to box height */
+        identical to box height 
 
         color: #FFAB40;
     }
@@ -126,15 +127,7 @@
         top: 400px;
     }
 
-    img {
-        position: absolute;
-        width: 246px;
-        height: 208.44px;
-        left: 0;
-        top: 0px;
 
-        border-radius: 6px 6px 0px 0px;
-    }
 
     h3 {
         position: absolute;
@@ -168,5 +161,5 @@
 
         color: #FFFFFF;
 
-    }
+    } */
 </style>

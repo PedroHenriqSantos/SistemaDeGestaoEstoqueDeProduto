@@ -16,6 +16,10 @@
 .searchInput::placeholder {
     color: white !important;
 }
+.porfolioSearch{
+    display: inline-block !important;
+    width: 80% !important;
+}
  
 .titleList {
     color: #FFAB40;
@@ -59,6 +63,6 @@
 .linkButton{
     text-decoration: none;
 }
-.fa-square-minus,.fa-pen-to-square{
+.fa-square-minus,.fa-pen-to-square,.fa-cart-plus{
     color: #FFAB40;
 }
