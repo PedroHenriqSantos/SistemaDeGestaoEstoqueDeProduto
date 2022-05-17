@@ -18,7 +18,10 @@ use App\Models\Entity\Comment;
         $this->render('Layout/Portfolio/list',"Portfolio/header");
     }
 
-    public function productDetail($params){
+    public function productDetail(){
+        $this->render('Layout/Portfolio/detailProduct',"Portfolio/header");
+    }
+    public function saveCart($params){
         $productDao = new ProductDAO();
         $id = $params[0];
         $quantity = $params[1];

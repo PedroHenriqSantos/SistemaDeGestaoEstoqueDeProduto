@@ -1,307 +1,199 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="titlePortfolio">Pão de Sal</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="imagem" id="imagem" class="imageProduct">
+            </div>
+            <div class="col-6">
+                <div class="col-12">
+                    <h4 class="descriptionProduct">Pão realizado aos moldes francêses com uma crocância impressioante.</h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+
+                    <button type="submit" class="buttonBuy"> Comprar </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-4 inforProduct">
+                <h3>Preço: R$ 1,00</h3>
+            </div>
+            <div class="col-8"></div>
+        </div>
+        <div class="row">
+            <div class="col-4 inforProduct">
+                <h3>Avaliação: </h3>
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="avaliacao" id="avaliacao">
+            </div>
+            <div class="col-8"></div>
+        </div>
+        <div class="row">
+            <div class="col-4 inforProduct">
+                <h3>Restam: 02 Produtos</h3>
+            </div>
+            <div class="col-8"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="titlePortfolio">Comentarios</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
+            </div>
+            <div class="col-8">
+                <input value="Pão delicioso" class="comentInput" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
+            </div>
+            <div class="col-8">
+                <input value="Pão delicioso" class="comentInput" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
+            </div>
+            <div class="col-8">
+                <input value="Pão delicioso" class="comentInput" />
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 justify-content-center d-flex ">
+                <button type="submit" class="buttonPlus"> Carregar mais </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="titlePortfolio">Escreva seu comentário aqui: </h3>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <form class="row">
+                <div class="col-4">
+                    <input type="text" name="comment" class="inputAdd" placeholder="Comentário">
+                </div>
+                <div class="col-4">
+                    <input type="text" name="name" class="inputAdd" placeholder="Nome">
+                </div>
+                <div class="col-4">
+                    <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Comentário</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
 
 <style>
-     main{
-        margin-top: 100px;
+    .imageProduct{
+        width: 100%;
+        height: auto;
     }
-    .texto{
-        position: absolute;
-width: 283px;
-height: 40px;
-left: 135px;
-top: 70px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 500px;
-font-size: 45px;
-line-height: 68px;
-/* identical to box height */
-color: #FFAB40;
-    }
-    .descricao{
-        position: absolute;
-width: 598px;
-height: 372px;
-left: 743px;
-top: 227px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 35px;
-line-height: 52px;
-
-color: #824700;
-
-    }
-    #imagem{
-        position: absolute;
-width: 559px;
-height: 372px;
-left: 135px;
-top: 227px;
-
+    .buttonAdd:hover {
+        background-color: #c78b2b;
     }
 
-    input[ type="text"], input[ type="submit"], input[type="number"]{
-        color: #FFFFFF;
+    .buttonAdd {
+        padding: 1rem 2rem 1rem 2rem;
+        background-color: #DD6B20;
+        color: white;
     }
-    
-    #comprar{
-        position: absolute;
-width: 221px;
-height: 51px;
-left: 896px;
-top: 548px;
-border: none;
-background: #DD6B20;
-border-radius: 6px;
-cursor: pointer;
-    }
-    .preco{
-        position: absolute;
-width: 559px;
-height: 53px;
-left: 144px;
-top: 619px;
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 35px;
-line-height: 52px;
-color: #824700;
-    }
-    .ava{
-        position: absolute;
-width: 559px;
-height: 53px;
-left: 144px;
-top: 707px;
+    .inputAdd {
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 35px;
-line-height: 52px;
-color: #824700;
-
-    }
-    #avaliacao{
-        position: absolute;
-width: 300px;
-height: 43px;
-left: 211px;
-top: 45px;
-    }
-.restam{
-    position: absolute;
-width: 559px;
-height: 53px;
-left: 144px;
-top: 799px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 35px;
-line-height: 52px;
-color: #824700;
-
-}
-.coment{
-    position: absolute;
-width: 550px;
-height: 68px;
-left: 144px;
-top: 892px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 45px;
-line-height: 68px;
-color: #FFAB40;
-
-}
-p{
-    position: absolute;
-width: 591px;
-height: 34px;
-left: 50px;
-top: 10px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #FFFFFF;
-}
-
-.comentar1{
-    position: absolute;
-width: 73px;
-height: 76px;
-left: 231px;
-top: 1058px;
-}
-#persona1, #persona2, #persona3{
-    position: absolute;
-left: 20px;
-right: 0%;
-top: 20px;
-
-}
-.coment1{
-    position: absolute;
-width: 665px;
-height: 72px;
-left: 375px;
-top: 1062px;
-background: #824700;
-
-}
-.comentar2{
-    position: absolute;
-width: 73px;
-height: 76px;
-left: 231px;
-top: 1208px;
-
-}
-.coment2{
-    position: absolute;
-width: 665px;
-height: 72px;
-left: 375px;
-top: 1210px;
-background: #824700;
-
-}
-.comentar3{
-    position: absolute;
-width: 73px;
-height: 76px;
-left: 231px;
-top: 1358px;
-}
-.coment3{
-    position: absolute;
-width: 665px;
-height: 72px;
-left: 377px;
-top: 1362px;
-
-background: #824700;
-}
-#mais{
-    position: absolute;
-width: 221px;
-height: 51px;
-left: 574px;
-top: 1482px;
-border: none;
-background: #DD6B20;
-border-radius: 6px;
-cursor: pointer;
-}
-#escreve{
-    position: absolute;
-width: 283px;
-height: 72px;
-left: 253px;
-top: 1590px;
-text-align: center;
-border: none;
-border-radius: 6px;
-background: #824700;
-}
-input::placeholder{
-        color: #FFFFFF;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-    }
-    input:focus{
+        padding: 1rem;
         outline: none;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        background-color: #CC7200;
+        
+        color: white;
     }
-    #nome{
-        position: absolute;
-width: 283px;
-height: 72px;
-left: 574px;
-top: 1590px;
-text-align: center;
-border: none;
-border-radius: 6px;
-background: #824700;
+    .inputAdd::placeholder{
+        color: white;
     }
-    #cadastrar{
-        position: absolute;
-width: 221px;
-height: 51px;
-left: 920px;
-top: 1604px;
-border: none;
-background: #DD6B20;
-border-radius: 6px;
-cursor: pointer;
+
+    .inputAdd::focus {
+        color: white;
+    }
+
+    .comentInput {
+        color: white;
+        padding: 2rem;
+        background-color: #824700;
+        border: none;
+        border-radius: 0.5rem;
+        width: 80%;
+        margin-bottom: 1rem;
+
+    }
+
+    .buttonBuy {
+
+        width: 10rem;
+        padding: 0.5rem;
+        border: #FFAB40;
+        background: #DD6B20;
+        border-radius: 6px;
+        margin-top: 1.3rem;
+        cursor: pointer;
+        color: white;
+    }
+
+    .buttonBuy:hover {
+        background: #FFAB40;
+    }
+
+    .inforProduct {
+        margin-top: 1rem;
+        color: #824700;
+        font-size: 2rem;
+        font-weight: bold;
+
+    }
+
+    .descriptionProduct {
+        color: #824700;
+        font-size: 2rem;
+    }
+
+    .titlePortfolio {
+        color: #FFAB40;
+        font-weight: 600;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+
+    }
+
+
+
+    .buttonPlus {
+
+        width: 10rem;
+        padding: 0.5rem;
+        border: #FFAB40;
+        background: #DD6B20;
+        border-radius: 6px;
+        margin-top: 1.3rem;
+        cursor: pointer;
+    }
+
+    .buttonPlus:hover {
+        background: #FFAB40;
     }
 </style>
-<main>
-        <div class="texto">
-            <h3>Pão de Sal</h3>
-        </div>
-        <div class="descricao">
-            <h4>Pão realizado aos moldes francêses com uma crocância impressioante.</h4>
-        </div>
-        <img src="img/pao.jpg" alt="imagem" id="imagem">
-
-        <input type="submit" id="comprar" value="Comprar">
-
-        <div class="preco">
-            <h3>Preço: R$ 1,00</h3>
-        </div>
-        <div class="ava">
-            <h3>Avaliação: </h3>
-            <img src="img/Avaliação.png" alt="avaliacao" id="avaliacao">
-        </div>
-        <div class="restam">
-            <h3>Restam: 02 Produtos</h3>
-        </div>
-        <div class="coment">
-            <h3>Comentarios</h3>
-        </div>
-        <div class="comentar1">
-        <img src="img/Ellipse 1.png" alt="foto" id="comenta1">
-        <img src="img/Vector.png" alt="p" id="persona1">
-    </div>
-        <div class="coment1">
-            <p>Pão delicioso</p>
-        </div>
-        <div class="comentar2">
-            <img src="img/Ellipse 1.png" alt="foto" id="comenta2">
-            <img src="img/Vector.png" alt="p" id="persona2">
-        </div>
-            <div class="coment2">
-                <p>Pão delicioso</p>
-            </div>
-            <div class="comentar3">
-                <img src="img/Ellipse 1.png" alt="foto" id="comenta3">
-                <img src="img/Vector.png" alt="p" id="persona3">
-            </div>
-                <div class="coment3">
-                    <p>Pão delicioso</p>
-                </div>
-                <input type="submit" id="mais" value="Carregar mais">
-
-                <input type="text" name="escreve" id="escreve" placeholder="Escreva seu comentario aqui">
-                <input type="text" name="nome" id="nome" placeholder="Nome">
-
-                <input type="submit" id="cadastrar" value="Cadastrar">
-    </main>

@@ -18,7 +18,7 @@
     <header>
 
         <div class="header">
-            <div class="container">
+            <div class="container containerPortfolio">
                 <div class="row">
                     <div class="col-2 logo">
                         <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
@@ -154,7 +154,7 @@
         margin-bottom: 2rem;
     }
 
-    .container {
+    .containerPortfolio {
         width: 100%;
         background: #824700;
     }

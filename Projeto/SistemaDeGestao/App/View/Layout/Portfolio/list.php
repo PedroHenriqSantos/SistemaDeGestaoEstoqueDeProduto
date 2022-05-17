@@ -1,165 +1,89 @@
 <body>
-    <main>
-        <div class="texto">
-            <h2>Produtos</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="titlePortfolio">Produtos</h2>
+            </div>
         </div>
-        <div class="retangulo1">
-            <img src="C:\Users\Usuário\Pictures\pao.jpg" alt="pao">
-            <h3>Pão de Sal</h3>
-            <p>Preço: R$1,00</p>
-            <img id="ava" src="img/Avaliação.png" alt="ava">
-        </div>
-        <div class="retangulo2">
-            <img src="img/pao.jpg" alt="pao">
-            <h3>Pão de Sal</h3>
-            <p>Preço: R$1,00</p>
-            <img id="ava" src="img/Avaliação.png" alt="ava">
-        </div>
-        <div class="retangulo3">
-            <img src="img/pao.jpg" alt="pao">
-            <h3>Pão de Sal</h3>
-            <p>Preço: R$1,00</p>
-            <img id="ava" src="img/Avaliação.png" alt="ava">
-        </div>
-        <div class="retangulo4">
-            <img src="img/pao.jpg" alt="pao">
-            <h3>Pão de Sal</h3>
-            <p>Preço: R$1,00</p>
-            <img src="img/pao.jpg" alt="pao">
-            <img id="ava" src="img/Avaliação.png" alt="ava">
-        </div>
-        <input type="submit" id="mais" value="Carregar mais">
+        <div class="row">
+            <div class="col-3">
+                <div class="boxProduct">
+                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                    <h3 class="imagePortfolio">Pão de Sal</h3>
+                    <p class="imagePortfolio">Preço: R$1,00</p>
+                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="boxProduct">
+                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                    <h3 class="imagePortfolio">Pão de Sal</h3>
+                    <p class="imagePortfolio">Preço: R$1,00</p>
+                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="boxProduct">
+                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                    <h3 class="imagePortfolio">Pão de Sal</h3>
+                    <p class="imagePortfolio">Preço: R$1,00</p>
+                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="boxProduct">
+                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                    <h3 class="imagePortfolio">Pão de Sal</h3>
+                    <p class="imagePortfolio">Preço: R$1,00</p>
+                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                </div>
+            </div>
+            <div class="col-12 justify-content-center d-flex ">
+                <button type="submit" class="buttonPlus"> Carregar mais </button>
+            </div>
 
-    </main>
+        </div>
+    </div>
 </body>
 
 
 
 <style>
-    /*
-    main {
-        margin-top: 100px;
-    }
-
-    .texto {
-
-        position: absolute;
-        width: 183px;
-        height: 40px;
-        left: 135px;
-        top: 100px;
-
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 30px;
-        line-height: 60px;
-        identical to box height 
-
+    .titlePortfolio{
         color: #FFAB40;
+        font-weight: 600;
+        font-size: 2.5rem;
+
+    }
+    .imagePortfolio {
+        margin-bottom: 1rem;
     }
 
-    .retangulo1 {
-        position: absolute;
-        width: 246px;
-        height: 463px;
-        left: 135px;
-        top: 223px;
+    .boxProduct {
 
         background: #824700;
         border-radius: 6px;
-    }
-
-    .retangulo2 {
-        position: absolute;
         width: 246px;
         height: 463px;
-        left: 459px;
-        top: 223px;
-
-        background: #824700;
-        border-radius: 6px;
+        margin-right: 1rem;
+        text-align: center;
+        color: white;
     }
 
-    .retangulo3 {
-        position: absolute;
-        width: 246px;
-        height: 463px;
-        left: 783px;
-        top: 223px;
 
-        background: #824700;
-        border-radius: 6px;
-    }
 
-    .retangulo4 {
-        position: absolute;
-        width: 246px;
-        height: 463px;
-        left: 1107px;
-        top: 223px;
+    .buttonPlus {
 
-        background: #824700;
-        border-radius: 6px;
-    }
-
-    #mais {
-        position: absolute;
-        width: 221px;
-        height: 51px;
-        left: 639px;
-        top: 794px;
+        width: 10rem;
+        padding: 0.5rem;
         border: #FFAB40;
         background: #DD6B20;
         border-radius: 6px;
+        margin-top: 1.3rem;
         cursor: pointer;
     }
 
-    input[type="submit"] {
-        color: #FFFFFF;
+    .buttonPlus:hover {
+        background: #FFAB40;
     }
-
-    #ava {
-        position: absolute;
-        width: 147px;
-        height: 20px;
-        left: 24px;
-        top: 400px;
-    }
-
-
-
-    h3 {
-        position: absolute;
-        width: 206px;
-        height: 38px;
-        left: 21px;
-        top: 218px;
-
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 28px;
-
-        color: #ffffff;
-
-    }
-
-    p {
-        position: absolute;
-        width: 187px;
-        height: 27px;
-        left: 40px;
-        top: 289px;
-
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-
-        color: #FFFFFF;
-
-    } */
 </style>
