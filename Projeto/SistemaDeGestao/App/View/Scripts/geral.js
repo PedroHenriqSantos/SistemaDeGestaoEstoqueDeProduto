@@ -3,20 +3,22 @@ $(".addImageButton").click(function()  {
     $(".inputFile").click();
 });
 
-$(".addQuantity").click((e) => {
+
+
+$('.addQuantity').on('click',function(e){
     e.preventDefault();
     let value = $(this).siblings("input").val();
-    console.log($(this).html());
-    //let intValue = parseInt();
-    //$(this).siblings(".quantityCart").val(intValue + 1);
+    let intValue = parseInt(value);
+    $(this).siblings("input").val(intValue + 1); 
 });
-$(".minimusQuantity").click( (e) => {
+
+$('.minimusQuantity').on('click',function(e){
     e.preventDefault();
-    let value = $(this).siblings(".quantityCart").val();
-    
+    let value = $(this).siblings("input").val();
     let intValue = parseInt(value);
     if(intValue - 1 <= 0){
         return;
     }
-    $(".quantityCart").val(value - 1);
+    $(this).siblings("input").val(intValue - 1); 
 });
+
