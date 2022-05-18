@@ -1,221 +1,200 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="titlePortfolio">Carrinho de compras</h2>
+            </div>
+        </div>
+        <form action="<?= 'http://' . APP_HOST . '/cart/post' ?>" method="post">
+            <div class="row">
+                <div class="col-3">
+                    <input type="text" name="name" class="inputAdd" placeholder="Nome">
+                </div>
+                <div class="col-3">
+                    <input type="tel" name="phone" class="inputAdd" placeholder="Telefone">
+                </div>
+                <div class="col-3">
+                    <input type="tel" name="email" class="inputAdd" placeholder="E-mail">
+                </div>
+                <div class="col-3">
+                    <input type="tel" name="number" class="inputAdd" placeholder="Número">
+                </div>
+
+
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-3">
+                    <input type="text" name="neighbohood" class="inputAdd" placeholder="Bairro">
+                </div>
+                <div class="col-3">
+                    <input type="text" name="street" class="inputAdd" placeholder="Rua">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-3">
+
+                    <div class="boxProduct">
+                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                        <h3 class="imagePortfolio">Pão de Sal</h3>
+                        <p class="imagePortfolio">Preço: R$1,00</p>
+                        <label for="qtd"> Qtd: </label>
+                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
+                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
+                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
+
+
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="boxProduct">
+                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                        <h3 class="imagePortfolio">Pão de Sal</h3>
+                        <p class="imagePortfolio">Preço: R$1,00</p>
+                        <label for="qtd"> Qtd: </label>
+                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
+                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
+                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
+
+
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="boxProduct">
+                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                        <h3 class="imagePortfolio">Pão de Sal</h3>
+                        <p class="imagePortfolio">Preço: R$1,00</p>
+                        <label for="qtd"> Qtd: </label>
+                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
+                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
+                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
+
+
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="boxProduct">
+                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
+                        <h3 class="imagePortfolio">Pão de Sal</h3>
+                        <p class="imagePortfolio">Preço: R$1,00</p>
+                        <label for="qtd"> Qtd: </label>
+                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
+                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
+                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <section class="enviar">
+                <button class="btn buttonAdd" id="bt_save" name="bt_save">Comprar</button>
+            </section>
+        </form>
+
+
+
+    </div>
+</body>
+
 <style>
-    main{
-        margin-top: 50px;
+    .buttonAdd:hover {
+        background-color: #c78b2b;
+        color: white;
     }
-    .texto{
-        position: absolute;
-width: 183px;
-height: 40px;
-left: 135px;
-top: 70px;
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-line-height: 60px;
-/* identical to box height */
-
-color: #FFAB40;
+    .enviar {
+        margin-top: 2rem;
+        text-align: center;
     }
-    input::placeholder{
-        color: #FFFFFF;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-    }
-    input[ type="text"], input[ type="submit"], input[type="number"]{
-        color: #FFFFFF;
-    }
-    input:focus{
-        outline-color:#8c5309;
-    }
-#nomes{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 148px;
-top: 200px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-#tel{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 445px;
-top: 200px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-#email{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 750px;
-top: 200px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-#numero{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 1034px;
-top: 200px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-#bairro{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 148px;
-top: 287px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-#rua{
-    position: absolute;
-width: 221px;
-height: 45.25px;
-left: 445px;
-top: 287px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
-}
-.retangulo1{
-    position: absolute;
-width: 246px;
-height: 313px;
-left: 135px;
-top: 372px;
 
-background: #824700;
-border-radius: 6px;
+    .buttonAdd {
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        background-color: #DD6B20;
+        color: white;
     }
-    .retangulo2{
-        position: absolute;
-width: 246px;
-height: 313px;
-left: 435px;
-top: 372px;
 
-background: #824700;
-border-radius: 6px;
+    .inputAdd {
+
+        padding: 1rem;
+        outline: none;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        background-color: #CC7200;
+        color: white;
     }
-    .retangulo3{
-        position: absolute;
-width: 246px;
-height: 313px;
-left: 735px;
-top: 372px;
 
-background: #824700;
-border-radius: 6px;
+    .quantityCart {
+        padding: 0.2rem;
+        width: 20%;
     }
-    img{
-        position: absolute;
-width: 246px;
-height: 188.44px;
-left: 0;
-top: 0px;
 
-border-radius: 6px 6px 0px 0px;
+    .inputAdd::focus {
+        color: white;
     }
-    h3{
-        position: absolute;
-width: 187px;
-height: 27px;
-left: 20px;
-top: 165px;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 28px;
-
-color: #FFFFFF;
+    .inputAdd::placeholder {
+        color: white;
     }
-    p{
-        position: absolute;
-width: 187px;
-height: 27px;
-left: 40px;
-top: 219px;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 21px;
-
-color: #FFFFFF;
+    .titlePortfolio {
+        color: #FFAB40;
+        font-weight: 600;
+        font-size: 2.5rem;
 
     }
-    #mais{
-        position: absolute;
-width: 221px;
-height: 51px;
-left: 639px;
-top: 794px;
-border: #FFAB40;
-background: #DD6B20;
-border-radius: 6px;
-cursor: pointer;
+
+    .imagePortfolio {
+        margin-bottom: 1rem;
+        max-width: 100%;
     }
-    #qtde{
-        position: absolute;
-width: 187px;
-height: 27px;
-left: 10px;
-top: 269px;
-border: #FFAB40;
-background: #CC7200;
-border-radius: 6px;
+
+    .boxProduct {
+
+        background: #824700;
+        border-radius: 6px;
+        width: 100%;
+        height: auto;
+        margin-right: 1rem;
+        text-align: center;
+        color: white;
+        padding: 1rem;
+    }
+
+
+
+    .buttonPlus {
+
+        width: 10rem;
+        padding: 0.5rem;
+        border: #FFAB40;
+        background: #DD6B20;
+        border-radius: 6px;
+        margin-top: 1.3rem;
+        cursor: pointer;
+    }
+
+    .linkButton {
+        background-color: #FFAB40;
+        color: #CC7200;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        text-decoration: none;
+
+    }
+
+    .linkButton:hover {
+        background-color: #FFAB11;
+        color: #CC7200;
+
+
+    }
+
+    .buttonPlus:hover {
+        background: #FFAB40;
     }
 </style>
-
-<body>
-    <main>
-        <div class="texto">
-            <h2>Carrinho</h2>
-        </div>
-        
-            <input type="text" name="nomes" id="nomes" placeholder="Nome" autocomplete="off"> 
-            <input type="text" name="nomes" id="tel" placeholder="Telefone" autocomplete="off">
-            <input type="text" name="nomes" id="email" placeholder="E-mail" autocomplete="off">
-            <input type="text" name="nomes" id="numero" placeholder="Número" autocomplete="off">
-            <input type="text" name="nomes" id="bairro" placeholder="Bairro" autocomplete="off">
-            <input type="text" name="nomes" id="rua" placeholder="Rua" autocomplete="off">
-        
-            <div class="retangulo1">
-                <img src="img/pao.jpg" alt="pao">
-                <h3>Pão de Sal</h3>
-                <p>Preço: R$1,00</p>
-                <input type="number" id="qtde" value="Qtde: ">
-            </div>
-            <div class="retangulo2">
-                <img src="img/pao.jpg" alt="pao">
-                <h3>Pão de Sal</h3>
-                <p>Preço: R$1,00</p>
-                <input type="number" id="qtde" value="Qtde: ">
-            </div>
-            <div class="retangulo3">
-                <img src="img/pao.jpg" alt="pao">
-                <h3>Pão de Sal</h3>
-                <p>Preço: R$1,00</p>
-                <input type="number" id="qtde" min="1" max="50">
-            </div>
-            <input type="submit"  id="mais" value="Comprar">
-        </main>
-</body>

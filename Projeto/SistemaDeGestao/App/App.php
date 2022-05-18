@@ -26,7 +26,7 @@
         
         public function run(){
 
-            $this->setLogin();
+            //$this->setLogin();
             //Chamando o controller do User 
             
         

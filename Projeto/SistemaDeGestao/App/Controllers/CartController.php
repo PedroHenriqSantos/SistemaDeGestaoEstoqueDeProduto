@@ -8,7 +8,7 @@ use App\Models\Entity\Client;
 
     public function buy(){
        
-        $this->render('Layout/Cart/cart');
+        $this->render('Layout/Cart/cart',"Portfolio/header");
     }
 
     public function sendCart(){
