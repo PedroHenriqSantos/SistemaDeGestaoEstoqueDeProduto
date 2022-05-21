@@ -1,28 +1,31 @@
+<?php
+$product = $this->view_var["product"];
+?>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="titlePortfolio">Pão de Sal</h3>
+                <h3 class="titlePortfolio"><?= $product->getName() ?></h3>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="imagem" id="imagem" class="imageProduct">
+                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage() ?>" alt="imagem" id="imagem" class="imageProduct">
             </div>
             <div class="col-6">
                 <div class="col-12">
-                    <h4 class="descriptionProduct">Pão realizado aos moldes francêses com uma crocância impressioante.</h4>
+                    <h4 class="descriptionProduct"><?= $product->getDescription() ?></h4>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
+                <a href="<?= 'http://' . APP_HOST. '/portfolio/saveCart/' . $product->getId() ?>" target="_blank" class="btn buttonBuy">Comprar</a>
 
-                    <button type="submit" class="buttonBuy"> Comprar </button>
                 </div>
             </div>
 
         </div>
         <div class="row">
             <div class="col-4 inforProduct">
-                <h3>Preço: R$ 1,00</h3>
+                <h3>Preço: R$ <?= $product->getPrice() ?></h3>
             </div>
             <div class="col-8"></div>
         </div>
@@ -35,7 +38,7 @@
         </div>
         <div class="row">
             <div class="col-4 inforProduct">
-                <h3>Restam: 02 Produtos</h3>
+                <h3>Restam: <?= $product->getQuantity() ?> Produtos</h3>
             </div>
             <div class="col-8"></div>
         </div>
@@ -90,6 +93,7 @@
                     <input type="text" name="name" class="inputAdd" placeholder="Nome">
                 </div>
                 <div class="col-4">
+
                     <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Comentário</button>
                 </div>
             </form>

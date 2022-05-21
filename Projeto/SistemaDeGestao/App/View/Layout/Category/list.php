@@ -60,8 +60,8 @@ $categorys = $this->view_var["categorys"];
     </div>
     <!--Botão cadastrar produto-->
     <div class="row">
-        <div class="col-12 botao">
-            <button type="button" class="btn addButton">Cadastrar Categoria</button>
+    <div class="col-12 botao">
+            <a href="<?= 'http://' . APP_HOST. '/category/register' ?>" target="_blank" class="btn addButton">Cadastrar Categoria</a>
         </div>
     </div>
 

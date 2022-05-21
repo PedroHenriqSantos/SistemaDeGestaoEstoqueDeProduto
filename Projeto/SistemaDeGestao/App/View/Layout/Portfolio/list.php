@@ -1,3 +1,7 @@
+<?php
+$products = $this->view_var["products"];
+?>
+
 <body>
     <div class="container">
         <div class="row">
@@ -6,42 +10,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3">
-                <div class="boxProduct">
-                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                    <h3 class="imagePortfolio">Pão de Sal</h3>
-                    <p class="imagePortfolio">Preço: R$1,00</p>
-                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="boxProduct">
-                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                    <h3 class="imagePortfolio">Pão de Sal</h3>
-                    <p class="imagePortfolio">Preço: R$1,00</p>
-                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="boxProduct">
-                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                    <h3 class="imagePortfolio">Pão de Sal</h3>
-                    <p class="imagePortfolio">Preço: R$1,00</p>
-                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="boxProduct">
-                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                    <h3 class="imagePortfolio">Pão de Sal</h3>
-                    <p class="imagePortfolio">Preço: R$1,00</p>
-                    <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
-                </div>
-            </div>
-            <div class="col-12 justify-content-center d-flex ">
-                <button type="submit" class="buttonPlus"> Carregar mais </button>
-            </div>
+            <?php
+            foreach ($products as $product) { ?>
 
+                <div class="col-3">
+                    <a href="<?= 'http://' . APP_HOST . '/portfolio/productDetail/' . $product->getId() ?>" class="linkProduct" target="_blank">
+                        <div class="boxProduct">
+                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
+                            <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
+                            <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
+                            <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                        </div>
+                    </a>
+                </div>
+
+            <?php } ?>
         </div>
     </div>
 </body>
@@ -49,28 +32,38 @@
 
 
 <style>
-    .titlePortfolio{
+    .linkProduct {
+        text-decoration: none;
+    }
+
+    .titlePortfolio {
         color: #FFAB40;
         font-weight: 600;
         font-size: 2.5rem;
 
     }
+
     .imagePortfolio {
         margin-bottom: 1rem;
+        width: 100%;
     }
 
     .boxProduct {
 
         background: #824700;
         border-radius: 6px;
-        width: 246px;
+        width: 100%;
         height: 463px;
         margin-right: 1rem;
         text-align: center;
         color: white;
     }
 
+    .boxProduct:hover {
 
+        background: #825700;
+
+    }
 
     .buttonPlus {
 

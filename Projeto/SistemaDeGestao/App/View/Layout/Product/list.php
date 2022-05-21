@@ -61,8 +61,8 @@ $products = $this->view_var["products"];
     </div>
     <!--Botão cadastrar produto-->
     <div class="row">
-        <div class="col-12 botao">
-            <button type="button" class="btn addButton">Cadastrar Usuário</button>
+    <div class="col-12 botao">
+            <a href="<?= 'http://' . APP_HOST. '/product/register' ?>" target="_blank" class="btn addButton">Cadastrar Produto</a>
         </div>
     </div>
 

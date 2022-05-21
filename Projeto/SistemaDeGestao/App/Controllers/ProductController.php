@@ -74,9 +74,7 @@ class ProductController extends Controller
     {
         if (isset($_POST['bt_save'])) {
             $productDAO = new ProductDAO();
-            var_dump('B');
             if($this->validateFieldsWithFile($productDAO->getFields())){ 
-                var_dump('a');die;
                 $product = new Product();
                 $product->setName($_POST['name']);
                 $product->setDescription($_POST['description']);
