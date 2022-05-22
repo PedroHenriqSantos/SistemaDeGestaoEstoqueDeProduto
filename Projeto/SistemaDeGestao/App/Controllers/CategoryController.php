@@ -24,7 +24,7 @@
             $id = $params[0];
             $categoryDAO = new CategoryDAO();
             $category = $categoryDAO->findById($id);
-            $this->setViewVar('category',$category[0]); 
+            $this->setViewVar('category',$category); 
             $this->render('Layout/Category/edit');
         }
         public function post(){

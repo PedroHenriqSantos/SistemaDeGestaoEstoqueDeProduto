@@ -8,8 +8,8 @@
      class ClientDAO extends BaseDAO{
 
         private $table_name = 'clients';
-        private $fields = ["name", "street", "district", "phone","email","number"]; 
-        private $columns = ":id,:name,:district,:street,:phone,:email,:number"; 
+        private $fields = ["name_client", "street_client", "district_client", "phone_client","email_client","number_client"]; 
+        private $columns = ":id_client,:name_client,:district_client,:street_client,:phone_client,:email_client,:number_client"; 
 
         public function getColumn(){
             return $this->columns;
@@ -25,13 +25,13 @@
                 
                 //Criando a referência dos atributos pré-definos com os dados correspondentes
                 $values = array(
-                    ":id" => $client->getid(), 
-                    ":name" => $client->getName(),
-                    ":street" => $client->getStreet(),
-                    ":district" => $client->getDistrict(),
-                    ":phone" => $client->getPhone(),
-                    ":email" => $client->getEmail(),
-                    ":number" => $client->getNumber(),
+                    ":id_client" => $client->getid(), 
+                    ":name_client" => $client->getName(),
+                    ":street_client" => $client->getStreet(),
+                    ":district_client" => $client->getDistrict(),
+                    ":phone_client" => $client->getPhone(),
+                    ":email_client" => $client->getEmail(),
+                    ":number_client" => $client->getNumber(),
                 );
                 //Chama a função de inserir dados da classe BaseDAO
                 return $this->insert($this->table_name,$column,$values);
@@ -62,13 +62,13 @@
         public function findById(User $user){
             try{
                 $sql = "SELECT * " . " FROM " . $this->table_name;
-                $sql .= " WHERE id = :id";
+                $sql .= " WHERE id_client = :id_client";
                 $values = array( 
-                    ":id" => $user->getId(),
+                    ":id_client" => $user->getId(),
                 );
                 
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class)[0]; 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();

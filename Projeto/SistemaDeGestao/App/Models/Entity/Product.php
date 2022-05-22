@@ -4,24 +4,24 @@ namespace App\Models\Entity;
 
 /* Classe com os atributos do cliente */
 class Product{
-    private $id;
-    private $name;
+    private $id_product;
+    private $name_product;
 
-    private $description;
-    private $price;
-    private $quantity;
+    private $description_product;
+    private $price_product;
+    private $quantity_product;
     private $idCategory;
-    private $image;
+    private $image_product;
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_product;
     }
 
 
-    public function setId($id)
+    public function setId($id_product)
     {
-        $this->id = $id;
+        $this->id_product = $id_product;
 
         return $this;
     }
@@ -31,52 +31,52 @@ class Product{
 
     public function getName()
     {
-        return $this->name;
+        return $this->name_product;
     }
 
 
-    public function setName($name)
+    public function setName($name_product)
     {
-        $this->name = $name;
+        $this->name_product = $name_product;
 
         return $this;
     }
 
     public function getDescription()
     {
-        return $this->description;
+        return $this->description_product;
     }
 
 
-    public function setDescription($description)
+    public function setDescription($description_product)
     {
-        $this->description = $description;
+        $this->description_product = $description_product;
 
         return $this;
     }
 
     public function getPrice()
     {
-        return $this->price;
+        return $this->price_product;
     }
 
 
-    public function setPrice($price)
+    public function setPrice($price_product)
     {
-        $this->price = $price;
+        $this->price_product = $price_product;
 
         return $this;
     }
 
     public function getQuantity()
     {
-        return $this->quantity;
+        return $this->quantity_product;
     }
 
 
-    public function setQuantity($quantity)
+    public function setQuantity($quantity_product)
     {
-        $this->quantity = $quantity;
+        $this->quantity_product = $quantity_product;
 
         return $this;
     }
@@ -97,13 +97,13 @@ class Product{
 
     public function getImage()
     {
-        return $this->image;
+        return $this->image_product;
     }
 
 
-    public function setImage($image)
+    public function setImage($image_product)
     {
-        $this->image = $image;
+        $this->image_product = $image_product;
 
         return $this;
     }

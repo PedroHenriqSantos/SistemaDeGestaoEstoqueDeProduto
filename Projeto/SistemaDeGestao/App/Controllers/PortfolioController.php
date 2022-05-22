@@ -23,21 +23,19 @@ use App\Models\Entity\Comment;
         $id = $params[0];
         
         $product = $productDao->findById( $id );
-        $this->setViewVar('product',$product[0]);
+        $this->setViewVar('product',$product);
         $this->render('Layout/Portfolio/detailProduct',"Portfolio/header");
     }
     public function saveCart($params){
         $id  = $params[0];
         if(!isset($_COOKIE["Carrinho"]) ||  $_COOKIE["Carrinho"] == null){
-            setcookie("Carrinho",json_encode(array($id)), time() + 3600);
+            setcookie("Carrinho",json_encode(array($id)), time() + 3600,"/");
         }else{
             $products = json_decode($_COOKIE["Carrinho"]);
             if(!in_array($id,$products)){
-                $products[] = $id;
-                setcookie("Carrinho", json_encode($products), time() + 3600);
+                $products[] = $id; 
+                setcookie("Carrinho", json_encode($products), time() + 3600,"/");
             }
-            var_dump( $products);die;
-
         }
         $this->productDetail($params);
     }

@@ -8,8 +8,8 @@
      class CommentDAO extends BaseDAO{
 
         private $table_name = 'comment';
-        private $fields = ["name", "comment"]; 
-        private $columns = ":id, :name, :comment"; 
+        private $fields = ["name_comment", "comment_comment"]; 
+        private $columns = ":id_comment, :name_comment, :comment_comment"; 
 
         public function getColumn(){
             return $this->columns;
@@ -23,9 +23,9 @@
                 $column = $this->getColumn();
                 
                 $values = array(
-                    ":id" => $comment->getid(), 
-                    ":name" => $comment->getName(),
-                    ":comment" => $comment->getComment(),
+                    ":id_comment" => $comment->getid(), 
+                    ":name_comment" => $comment->getName(),
+                    ":comment_comment" => $comment->getComment(),
                 );
                 return $this->insert($this->table_name,$column,$values);
 

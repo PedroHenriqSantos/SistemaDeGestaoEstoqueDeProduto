@@ -7,9 +7,9 @@
     
      class CartDAO extends BaseDAO{
 
-        private $table_name = 'carrinho';
-        private $fields = ["fk_id_product", "quantity"]; 
-        private $columns = ":id, :fk_id_product, :quantity"; 
+        private $table_name = 'cart';
+        private $fields = ["fk_id_product", "quantity_cart"]; 
+        private $columns = ":id_cart, :fk_id_product, :quantity_cart"; 
 
         public function getColumn(){
             return $this->columns;
@@ -23,10 +23,10 @@
                 $column = $this->getColumn();
                 
                 $values = array(
-                    ":id" => $cart->getid(), 
+                    ":id_cart" => $cart->getid(), 
                     ":fk_id_product" => $cart->getProductId(),
-                    ":quantity" => $cart->getQuantity(),
-                );
+                    ":quantity_cart" => $cart->getQuantity(),
+                ); 
                 return $this->insert($this->table_name,$column,$values);
 
             }catch(Exception $error){
@@ -43,7 +43,7 @@
                     ":id" => $id, 
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,Cart::class); 
+                return $resut->fetchAll(\PDO::FETCH_CLASS,Cart::class)[0]; 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();

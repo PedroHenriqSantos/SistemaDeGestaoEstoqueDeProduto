@@ -35,7 +35,7 @@ $products = $this->view_var["products"];
             </div>
         </div>
         <?php
-        foreach ($products as $product) { ?>
+        foreach ($products as $product) {  ?>
             <div class="row produtos row-list row-body-info">
                 <div class="col-2">
                     <p><?= $product->getId() ?></p>

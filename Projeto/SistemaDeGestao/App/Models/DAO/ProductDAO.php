@@ -8,8 +8,8 @@
      class ProductDAO extends BaseDAO{
 
         private $table_name = 'products';
-        private $fields = ["name", "description", "price", "quantity", "category"]; 
-        private $columns = ":id, :name, :description, :price, :quantity, :image, :fk_id_cat"; 
+        private $fields = ["name_product", "description_product", "price_product", "quantity_product", "category_product"]; 
+        private $columns = ":id_product, :name_product, :description_product, :price_product, :quantity_product, :image_product, :fk_id_cat"; 
 
         public function getColumn(){
             return $this->columns;
@@ -23,12 +23,12 @@
                 $column = $this->getColumn();
                 
                 $values = array(
-                    ":id" => $product->getid(), 
-                    ":name" => $product->getName(),
-                    ":description" => $product->getDescription(),
-                    ":price" => $product->getPrice(),
-                    ":quantity" => $product->getQuantity(),
-                    ":image" => $product->getImage(),
+                    ":id_product" => $product->getid(), 
+                    ":name_product" => $product->getName(),
+                    ":description_product" => $product->getDescription(),
+                    ":price_product" => $product->getPrice(),
+                    ":quantity_product" => $product->getQuantity(),
+                    ":image_product" => $product->getImage(),
                     ":fk_id_cat" => $product->getIdCategory(),
                 );
                 return $this->insert($this->table_name,$column,$values);
@@ -58,12 +58,12 @@
         public function findById($id){
             try{
                 $sql = "SELECT *" . " FROM " . $this->table_name;
-                $sql .= " WHERE id = :id";
+                $sql .= " WHERE id_product = :id_product";
                 $values = array(
-                    ":id" => $id, 
+                    ":id_product" => $id, 
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,Product::class); 
+                return $resut->fetchAll(\PDO::FETCH_CLASS,Product::class)[0]; 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -75,17 +75,17 @@
     public function updateByID(Product $product){
         try{
             //Atributos pré-definidos
-            $cols = "id = :id, name = :name, description =  :description, price = :price, image = :image, quantity = :quantity, fk_id_cat = :fk_id_cat";
-            $where = "id = :id";
+            $cols = "id_product = :id_product, name_product = :name_product, description_product =  :description_product, price_product = :price_product, image_product = :image_product, quantity_product = :quantity_product, fk_id_cat = :fk_id_cat";
+            $where = "id_product = :id_product";
             //Criando a referência dos atributos pré-definos com os novos dados correspondentes do usuario que será alterado
                 
             $values = array(
-                ":id" => $product->getid(), 
-                ":name" => $product->getName(),
-                ":description" => $product->getDescription(),
-                ":price" => $product->getPrice(),
-                ":quantity" => $product->getQuantity(),
-                ":image" => $product->getImage(),
+                ":id_product" => $product->getid(), 
+                ":name_product" => $product->getName(),
+                ":description_product" => $product->getDescription(),
+                ":price_product" => $product->getPrice(),
+                ":quantity_product" => $product->getQuantity(),
+                ":image_product" => $product->getImage(),
                 ":fk_id_cat" => $product->getIdCategory(),
             );
             //Chama a função de alterar dados da classe BaseDAO
@@ -99,9 +99,9 @@
     
     public function deleteByID(Product $product){
         try{
-            $where = "id = :id";
+            $where = "id_product = :id_product";
             $values = array(
-                ":id" => $product->getId(), 
+                ":id_product" => $product->getId(), 
             );
 
             return $this->delete($this->table_name,$values,$where);

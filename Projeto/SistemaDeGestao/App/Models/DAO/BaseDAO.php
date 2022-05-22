@@ -33,10 +33,10 @@ abstract class BaseDAO
             $sql = "INSERT INTO $table($column) values ($param)";
 
             $statement = $this->connection->prepare($sql);
+            
 
             $statement->execute($values);
-
-            return $statement->rowCount();
+            return $this->connection->lastInsertId();
         }
         return false;
     }

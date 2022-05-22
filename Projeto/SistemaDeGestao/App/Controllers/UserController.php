@@ -4,6 +4,7 @@
 
     use App\Models\DAO\UserDAO;
     use App\Models\Entity\User;
+    use App\Models\DAO\SaleDAO;
 
     /* Classe responsável por integrar o Model do usuário (UserDAO) com a view do site */
     class UserController extends Controller{
@@ -17,13 +18,18 @@
             $this->render('Layout/User/list');
         }
         public function principal(){
+
+            $newSaleDAO = new SaleDAO();
+            $sales = $newSaleDAO->findAllSaleWithClientAndCart();
+            $this->setViewVar('sales',$sales);
+
             $this->render('Layout/User/principal');
         }
         public function edit($params){
             $id = $params[0];
             $newUserDAO = new UserDAO();
             $user = $newUserDAO->findById($id);
-            $this->setViewVar('user',$user[0]); 
+            $this->setViewVar('user',$user); 
             $this->render('Layout/User/edit');
         }
         public function get(){

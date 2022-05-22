@@ -21,7 +21,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 logo">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
+                        <a href="<?= 'http://' . APP_HOST . '/user/principal' ?>">
+                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
+                        </a>
                     </div>
                     <div class="col-9 texto">
                         <p>Olá, Bem Vindo!</p>

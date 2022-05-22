@@ -8,8 +8,8 @@
      class UserDAO extends BaseDAO{
 
         private $table_name = 'users';
-        private $fields = ["name", "password", "function", "phone","email"]; 
-        private $columns = ":id, :name,  :password, :function, :phone, :email"; 
+        private $fields = ["name_user", "password_user", "function_user", "phone_user","email_user"]; 
+        private $columns = ":id_user, :name_user,  :password_user, :function_user, :phone_user, :email_user"; 
 
         public function getColumn(){
             return $this->columns;
@@ -25,12 +25,12 @@
                 
                 //Criando a referência dos atributos pré-definos com os dados correspondentes
                 $values = array(
-                    ":id" => $user->getid(), 
-                    ":name" => $user->getName(),
-                    ":password" => $user->getPassword(),
-                    ":function" => $user->getFunction(),
-                    ":phone" => $user->getPhone(),
-                    ":email" => $user->getEmail(),
+                    ":id_user" => $user->getid(), 
+                    ":name_user" => $user->getName(),
+                    ":password_user" => $user->getPassword(),
+                    ":function_user" => $user->getFunction(),
+                    ":phone_user" => $user->getPhone(),
+                    ":email_user" => $user->getEmail(),
                 );
                 //Chama a função de inserir dados da classe BaseDAO
                 return $this->insert($this->table_name,$column,$values);
@@ -60,12 +60,12 @@
         public function findById($id){
             try{
                 $sql = "SELECT *" . " FROM " . $this->table_name;
-                $sql .= " WHERE id = :id";
+                $sql .= " WHERE id_user = :id_user";
                 $values = array(
-                    ":id" => $id, 
+                    ":id_user" => $id, 
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class)[0]; 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -76,10 +76,10 @@
         public function findByEmailAndPassword(User $user){
             try{
                 $sql = "SELECT * " . " FROM " . $this->table_name;
-                $sql .= " WHERE email = :email AND password = :password";
+                $sql .= " WHERE email_user = :email_user AND password_user = :password_user";
                 $values = array( 
-                    ":email" => $user->getEmail(),
-                    ":password" => $user->getPassword(),
+                    ":email_user" => $user->getEmail(),
+                    ":password_user" => $user->getPassword(),
                 );
                 
                 $resut = $this->select($sql, $values);
@@ -95,16 +95,16 @@
         public function updateByID(User $user){
             try{
                 //Atributos pré-definidos
-                $cols = "id = :id, name = :name, password =  :password, function = :function, phone = :phone, email = :email";
-                $where = "id = :id";
+                $cols = "id_user = :id_user, name_user = :name_user, password_user =  :password_user, function_user = :function_user, phone_user = :phone_user, email_user = :email_user";
+                $where = "id_user = :id_user";
                 //Criando a referência dos atributos pré-definos com os novos dados correspondentes do usuario que será alterado
                 $values = array(
-                    ":id" => $user->getid(), 
-                    ":name" => $user->getName(),
-                    ":password" => $user->getPassword(),
-                    ":function" => $user->getFunction(),
-                    ":phone" => $user->getPhone(),
-                    ":email" => $user->getEmail(),
+                    ":id_user" => $user->getid(), 
+                    ":name_user" => $user->getName(),
+                    ":password_user" => $user->getPassword(),
+                    ":function_user" => $user->getFunction(),
+                    ":phone_user" => $user->getPhone(),
+                    ":email_user" => $user->getEmail(),
                 );
                 //Chama a função de alterar dados da classe BaseDAO
                 return $this->update($this->table_name,$cols,$values,$where);
@@ -117,9 +117,9 @@
 
         public function deleteByID(User $user){
             try{
-                $where = "id = :id";
+                $where = "id_user = :id_user";
                 $values = array(
-                    ":id" => $user->getId(), 
+                    ":id_user" => $user->getId(), 
                 );
 
                 return $this->delete($this->table_name,$values,$where);

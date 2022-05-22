@@ -17,7 +17,7 @@ $product = $this->view_var["product"];
                     <h4 class="descriptionProduct"><?= $product->getDescription() ?></h4>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                <a href="<?= 'http://' . APP_HOST. '/portfolio/saveCart/' . $product->getId() ?>" target="_blank" class="btn buttonBuy">Comprar</a>
+                <a href="<?= 'http://' . APP_HOST. '/portfolio/saveCart/' . $product->getId() ?>"  class="btn buttonBuy">Comprar</a>
 
                 </div>
             </div>

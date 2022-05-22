@@ -1,3 +1,7 @@
+<?php
+$products = $this->view_var["products"];
+?>
+
 <body>
     <div class="container">
         <div class="row">
@@ -5,7 +9,7 @@
                 <h2 class="titlePortfolio">Carrinho de compras</h2>
             </div>
         </div>
-        <form action="<?= 'http://' . APP_HOST . '/cart/post' ?>" method="post">
+        <form action="<?= 'http://' . APP_HOST . '/cart/sendCart' ?>" method="post">
             <div class="row">
                 <div class="col-3">
                     <input type="text" name="name" class="inputAdd" placeholder="Nome">
@@ -25,7 +29,7 @@
 
             <div class="row mt-3">
                 <div class="col-3">
-                    <input type="text" name="neighbohood" class="inputAdd" placeholder="Bairro">
+                    <input type="text" name="district" class="inputAdd" placeholder="Bairro">
                 </div>
                 <div class="col-3">
                     <input type="text" name="street" class="inputAdd" placeholder="Rua">
@@ -33,62 +37,25 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col-3">
-
-                    <div class="boxProduct">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                        <h3 class="imagePortfolio">Pão de Sal</h3>
-                        <p class="imagePortfolio">Preço: R$1,00</p>
-                        <label for="qtd"> Qtd: </label>
-                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
-                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
-                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
-
-
+                <?php
+                $indexProducts = 0;
+                foreach ($products as $product) {
+                ?>
+                    <div class="col-3">
+                        <div class="boxProduct">
+                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
+                            <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
+                            <p class="imagePortfolio">Preço: R$<?= $product->getPrice() ?></p>
+                            <label for="qtd"> Qtd: </label>
+                            <input type="number" value="1" class="inputAdd quantityCart" name="qtd[<?= $indexProducts ?>]">
+                            <input type="text" class="hidden" name="idProduct[<?= $indexProducts ?>]" value="<?= $product->getId() ?>" />
+                            <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
+                            <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-3">
-
-                    <div class="boxProduct">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                        <h3 class="imagePortfolio">Pão de Sal</h3>
-                        <p class="imagePortfolio">Preço: R$1,00</p>
-                        <label for="qtd"> Qtd: </label>
-                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
-                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
-                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
-
-
-                    </div>
-                </div>
-                <div class="col-3">
-
-                    <div class="boxProduct">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                        <h3 class="imagePortfolio">Pão de Sal</h3>
-                        <p class="imagePortfolio">Preço: R$1,00</p>
-                        <label for="qtd"> Qtd: </label>
-                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
-                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
-                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
-
-
-                    </div>
-                </div>
-                <div class="col-3">
-
-                    <div class="boxProduct">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/pao.png' ?>" alt="pao" class="imagePortfolio">
-                        <h3 class="imagePortfolio">Pão de Sal</h3>
-                        <p class="imagePortfolio">Preço: R$1,00</p>
-                        <label for="qtd"> Qtd: </label>
-                        <input type="number" value="0" class="inputAdd quantityCart"  name="qtd">
-                        <a class="linkButton addQuantity" href="#"><i class="fas fa-plus-circle"></i></i></a>
-                        <a class="linkButton minimusQuantity" href="#"><i class="fas fa-minus-circle"></i></i></a>
-
-
-                    </div>
-                </div>
+                <?php
+                    $indexProducts++;
+                } ?>
             </div>
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Comprar</button>
@@ -101,6 +68,10 @@
 </body>
 
 <style>
+    .hidden {
+        display: none;
+    }
+
     .buttonAdd:hover {
         background-color: #c78b2b;
         color: white;

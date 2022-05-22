@@ -13,26 +13,26 @@
                         Adicione a imagem do produto
                     </div>
                 </a>
-                <input type="file" class="inputFile" name="image" value="" />
+                <input type="file" class="inputFile" name="image_product" value="" />
             </div>
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_product" class="inputAdd" placeholder="nome">
                 </div>
                 <div class="col-3">
-                    <input type="description" name="description" class="inputAdd" placeholder="descrição">
+                    <input type="description" name="description_product" class="inputAdd" placeholder="descrição">
                 </div>
                 <div class="col-3">
-                    <input type="text" name="price" class="inputAdd" placeholder="preço">
+                    <input type="text" name="price_product" class="inputAdd" placeholder="preço">
                 </div>
                 <div class="col-3">
-                    <input type="number" name="quantity" class="inputAdd" placeholder="Quantidade">
+                    <input type="number" name="quantity_product" class="inputAdd" placeholder="Quantidade">
                 </div>
 
             </div>
             <div class="row mt-4">
                 <div class="col-4">
-                    <select class="selectAdd" name="category">
+                    <select class="selectAdd" name="category_product">
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
                             <option value="<?= $category->getId() ?>"> <?= $category->getName() ?> </option>

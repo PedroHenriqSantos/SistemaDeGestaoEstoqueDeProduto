@@ -21,7 +21,9 @@
             <div class="container containerPortfolio">
                 <div class="row">
                     <div class="col-2 logo">
-                        <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
+                        <a href="<?= 'http://' . APP_HOST . '/portfolio/index' ?>">
+                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
+                        </a>
                     </div>
                     <div class="col-4 logo">
                     </div>
@@ -36,7 +38,7 @@
                                 </form>
                             </div>
                             <div class="col-1">
-                                <a href="#" id="carrinho"><i class="fa-solid fa-cart-plus"></i></a>
+                                <a href="<?= 'http://' . APP_HOST . '/cart/buy' ?>" id="carrinho"><i class="fa-solid fa-cart-plus"></i></a>
                             </div>
                         </div>
 

@@ -4,19 +4,19 @@ namespace App\Models\Entity;
 
 /* Classe com os atributos do cliente */
 class Category{
-    private $id;
-    private $name;
+    private $id_category;
+    private $name_category;
 
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_category;
     }
 
 
-    public function setId($id)
+    public function setId($id_category)
     {
-        $this->id = $id;
+        $this->id_category = $id_category;
 
         return $this;
     }
@@ -26,13 +26,13 @@ class Category{
 
     public function getName()
     {
-        return $this->name;
+        return $this->name_category;
     }
 
 
-    public function setName($name)
+    public function setName($name_category)
     {
-        $this->name = $name;
+        $this->name_category = $name_category;
 
         return $this;
     }
