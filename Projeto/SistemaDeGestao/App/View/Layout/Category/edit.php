@@ -1,4 +1,4 @@
-<?php 
+<?php
 $category = $this->view_var["category"];
 ?>
 <div class="container">
@@ -7,15 +7,32 @@ $category = $this->view_var["category"];
     </div>
     <div class="row formAdd">
         <form action="<?= 'http://' . APP_HOST . '/category/update' ?>" method="post" enctype="multipart/form-data">
-            <input type="text" name="id" class="hidden" placeholder="nome" value="<?= $category->getId() ?>">
+            <input type="text" name="id_category" class="hidden" placeholder="nome" value="<?= $category->getId() ?>">
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd"  value="<?= $category->getName() ?>" placeholder="nome"/>
+                    <input type="text" name="name_category" class="inputAdd" value="<?= $category->getName() ?>" placeholder="nome" />
                 </div>
 
                 <section class="enviar">
                     <button class="btn buttonAdd" id="bt_save" name="bt_save">Atualizar Categoria</button>
                 </section>
+                <?php
+                if (isset($this->view_var['error'])) {
+                    if (empty($this->view_var['error'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-success text-center" role="alert">
+                                Categoria atualizada com sucesso
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <?= $this->view_var['error'] ?>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
             </div>
         </form>
     </div>
@@ -25,9 +42,11 @@ $category = $this->view_var["category"];
     form {
         width: 100%;
     }
-    .hidden{
+
+    .hidden {
         display: none;
     }
+
     .formAdd {
         margin-top: 2rem;
     }

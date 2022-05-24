@@ -33,10 +33,12 @@
                 $categoryDAO = new CategoryDAO();
 
                 if($this->validateFields($categoryDAO->getFields())){
-                    $newCategory->setName($_POST['name']);
+                    $newCategory->setName($_POST['name_category']);
                     $categoryDAO->saveDates($newCategory);
+                    $this->setViewVar('error','');
+
                 }
-                $this->list();
+                $this->register();
             }       
 
         }
@@ -47,11 +49,14 @@
                 $categoryDAO = new CategoryDAO();
 
                 if($this->validateFields($categoryDAO->getFields())){
-                    $newCategory->setId($_POST['id']);
-                    $newCategory->setName($_POST['name']);
+                    $newCategory->setId($_POST['id_category']);
+                    $newCategory->setName($_POST['name_category']);
                     $categoryDAO->updateByID($newCategory);
+                    $this->setViewVar('error','');
+
                 }
-                $this->list();
+                $params = array($_POST['id_category']);
+                $this->edit($params);
             }    
         }
         public function delete($params){

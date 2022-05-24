@@ -1,5 +1,12 @@
-<?php 
+<?php
 $product = $this->view_var["product"];
+$hiddenQuantity = '';
+if(isset($this->view_var["userLogin"])){
+    $user = $this->view_var["userLogin"];
+    if( $user->getFunction() == "NORMAL"){
+        $hiddenQuantity = 'hidden';
+    }
+}
 ?>
 <div class="container">
     <div class="row">
@@ -17,7 +24,7 @@ $product = $this->view_var["product"];
                         Adicione a imagem do produto
                     </div>
                 </a>
-                <input type="file" class="inputFile" name="image_product"  value="<?= $product->getImage() ?>" />
+                <input type="file" class="inputFile" name="image_product" value="<?= $product->getImage() ?>" />
             </div>
             <div class="row mt-4  ">
                 <div class="col-3">
@@ -30,7 +37,7 @@ $product = $this->view_var["product"];
                     <input type="text" name="price_product" class="inputAdd" placeholder="preço" value="<?= $product->getPrice() ?>">
                 </div>
                 <div class="col-3">
-                    <input type="number" name="quantity_product" class="inputAdd" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
+                    <input type="number" name="quantity_product" class="inputAdd <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
                 </div>
 
             </div>
@@ -49,6 +56,23 @@ $product = $this->view_var["product"];
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Atualizar Produto</button>
             </section>
+            <?php
+            if (isset($this->view_var['error'])) {
+                if (empty($this->view_var['error'])) { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-success text-center" role="alert">
+                            Produto atualizado com sucesso
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-danger text-center" role="alert">
+                            <?= $this->view_var['error'] ?>
+                        </div>
+                    </div>
+            <?php  }
+            }
+            ?>
         </form>
     </div>
 </div>
@@ -57,9 +81,11 @@ $product = $this->view_var["product"];
     form {
         width: 100%;
     }
-    .hidden{
+
+    .hidden {
         display: none;
     }
+
     .formAdd {
         margin-top: 2rem;
     }

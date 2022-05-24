@@ -83,7 +83,7 @@
                 );
                 
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class)[0]; 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();

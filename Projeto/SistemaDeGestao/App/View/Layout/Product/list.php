@@ -1,5 +1,6 @@
 <?php
 $products = $this->view_var["products"];
+
 ?>
 <div class="container">
     <div class="row headerBody">
@@ -68,3 +69,8 @@ $products = $this->view_var["products"];
 
 
 </div>
+<style> 
+    .hidden {
+        display: none;
+    }
+</style>

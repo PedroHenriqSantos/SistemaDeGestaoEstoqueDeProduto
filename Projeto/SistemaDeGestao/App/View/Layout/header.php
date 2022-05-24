@@ -1,3 +1,10 @@
+<?php 
+$nameUser =  '';
+if(isset($this->view_var["userLogin"])){
+    $user = $this->view_var["userLogin"];
+    $nameUser = $user->getName();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +33,7 @@
                         </a>
                     </div>
                     <div class="col-9 texto">
-                        <p>Olá, Bem Vindo!</p>
+                        <p>Olá <?= $nameUser ?>, Bem Vindo!</p>
                     </div>
                 </div>
                 <div class="row ">

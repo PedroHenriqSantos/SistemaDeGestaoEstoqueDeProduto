@@ -12,16 +12,16 @@ $products = $this->view_var["products"];
         <form action="<?= 'http://' . APP_HOST . '/cart/sendCart' ?>" method="post">
             <div class="row">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd" placeholder="Nome">
+                    <input type="text" name="name_client" class="inputAdd" placeholder="Nome">
                 </div>
                 <div class="col-3">
-                    <input type="tel" name="phone" class="inputAdd" placeholder="Telefone">
+                    <input type="tel" name="phone_client" class="inputAdd" placeholder="Telefone">
                 </div>
                 <div class="col-3">
-                    <input type="tel" name="email" class="inputAdd" placeholder="E-mail">
+                    <input type="tel" name="email_client" class="inputAdd" placeholder="E-mail">
                 </div>
                 <div class="col-3">
-                    <input type="tel" name="number" class="inputAdd" placeholder="Número">
+                    <input type="tel" name="number_client" class="inputAdd" placeholder="Número">
                 </div>
 
 
@@ -29,10 +29,10 @@ $products = $this->view_var["products"];
 
             <div class="row mt-3">
                 <div class="col-3">
-                    <input type="text" name="district" class="inputAdd" placeholder="Bairro">
+                    <input type="text" name="district_client" class="inputAdd" placeholder="Bairro">
                 </div>
                 <div class="col-3">
-                    <input type="text" name="street" class="inputAdd" placeholder="Rua">
+                    <input type="text" name="street_client" class="inputAdd" placeholder="Rua">
                 </div>
             </div>
 
@@ -60,6 +60,23 @@ $products = $this->view_var["products"];
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Comprar</button>
             </section>
+            <?php
+                if (isset($this->view_var['error'])) {
+                    if (empty($this->view_var['error'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-success text-center" role="alert">
+                                Compra efetuada com sucesso
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <?= $this->view_var['error'] ?>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
         </form>
 
 

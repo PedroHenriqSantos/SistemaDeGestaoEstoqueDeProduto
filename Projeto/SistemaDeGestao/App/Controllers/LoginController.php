@@ -14,14 +14,16 @@ use App\Models\Entity\User;
     public function validate(){
         if (isset($_POST['bt_login'])) {
             $userEntity = new User();
-            $userEntity->setEmail($_POST['email']);
-            $userEntity->setPassword($_POST['password']);
+            $userEntity->setEmail($_POST['email_user']);
+            $userEntity->setPassword($_POST['password_user']);
             $userRepository = new UserDAO();
-            $isValid = $userRepository->findByEmailAndPassword($userEntity);
-            if(!$isValid){
+            $user = $userRepository->findByEmailAndPassword($userEntity);
+            if(!$user){
                 $this->setViewVar('error','Email ou senha inválidos');
             }else{
                 $_SESSION['logado'] = true;
+                $_SESSION['idUser'] = $user->getId();
+                $this->setViewVar('error','');
                 $this->redirectToUrl("/user/register");
             }
         }

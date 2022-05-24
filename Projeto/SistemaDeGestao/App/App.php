@@ -11,7 +11,8 @@
         private $action;
         private $params;
         private $controller_name;
-        private $controllersSet = ['user','category','product','login','cart','portfolio'];
+        private $controllersSet = ['user','category','product','login','cart'];
+        private $constrollersWithOutLogin = ['portfolio'];
         public function __construct(){
             $this->url();
         }
@@ -19,28 +20,25 @@
         /* Função que determina qual controller será chamado/ Qual ação será executada dentro do controller e qual página será carregada por meio da url*/
         public function setLogin(){
             if(!isset($_SESSION['logado'])){
-                session_start();
                 $_SESSION['logado'] = false;
+
             }
         }
         
         public function run(){
 
-            //$this->setLogin();
+            $this->setLogin();
             //Chamando o controller do User 
-            
-        
-            if(in_array($this->controller,$this->controllersSet) ){
+            if(in_array($this->controller,$this->constrollersWithOutLogin)){
+                $this->controller_name = ucwords($this->controller) . 'Controller';            
+            }else if(in_array($this->controller,$this->controllersSet) && $_SESSION['logado']  ){
                 $this->controller_name = ucwords($this->controller) . 'Controller';
-            }
-            else{
+            } else{
                 $this->controller_name = "LoginController";
                 $this->controller = new LoginController();
                 $this->controller->login();
             }
-
-            $this->controller_file = PATH . '/App/Controllers/' . $this->controller_name . '.php'; //URL para encontrar o controller de
-            
+            $this->controller_file = PATH . '/App/Controllers/' . $this->controller_name . '.php'; //URL para encontrar o controller de            
             //Caso o controller não exista o processo morre
             if(!file_exists($this->controller_file)){
                 echo "Error: Pagina nao encontrada";
@@ -102,6 +100,3 @@
 
 
     }
-
-
-?>

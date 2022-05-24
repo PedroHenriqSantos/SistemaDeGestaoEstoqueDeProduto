@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\DAO\ProductDAO;
 use App\Models\Entity\Product;
+use App\Models\DAO\UserDAO;
 
 /* Classe responsável por integrar o Model do usuário (UserDAO) com a view do site */
 
@@ -74,7 +75,7 @@ class ProductController extends Controller
     {
         if (isset($_POST['bt_save'])) {
             $productDAO = new ProductDAO(); 
-           // if($this->validateFieldsWithFile($productDAO->getFields())){ 
+            if($this->validateFieldsWithFile($productDAO->getFields())){ 
                 $product = new Product();
                 $product->setName($_POST['name_product']);
                 $product->setDescription($_POST['description_product']);
@@ -84,13 +85,16 @@ class ProductController extends Controller
                 $uploadImage = $this->uploadImage($_FILES);
                 $product->setImage($uploadImage);
                 $id = $productDAO->saveDates($product);
-                $this->setViewVar('msg','Produto cadastrado com sucesso'); //Confirma que o registro foi feito com sucesso
-           // }
+                $this->setViewVar('error','');
+            }
             $this->register();
         }
     }
 
     public function update(){
+
+
+
         if(isset($_POST['bt_save'])){
             $productDAO = new ProductDAO();
             $product = new Product();
@@ -105,9 +109,10 @@ class ProductController extends Controller
                 $uploadImage = $this->uploadImage($_FILES);
                 $product->setImage($uploadImage);
                 $productDAO->updateByID($product);
+                $this->setViewVar('error','');
             } 
-
-            $this->list();
+            $params = array($_POST['id_product']);
+            $this->edit($params);
         }    
     }
 }

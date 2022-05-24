@@ -49,12 +49,14 @@
                 $newUser = new User();
                 $newUserDAO = new UserDAO();
                 if($this->validateFields($newUserDAO->getFields())){
-                    $newUser->setName($_POST['name']);
-                    $newUser->setEmail($_POST['email']);
-                    $newUser->setPhone($_POST['phone']);
-                    $newUser->setPassword($_POST['password']);
-                    $newUser->setFunction($_POST['function']);
+                    $newUser->setName($_POST['name_user']);
+                    $newUser->setEmail($_POST['email_user']);
+                    $newUser->setPhone($_POST['phone_user']);
+                    $newUser->setPassword($_POST['password_user']);
+                    $newUser->setFunction($_POST['function_user']);
                     $newUserDAO->saveDates($newUser);
+                    $this->setViewVar('error','');
+
                 }
 
                 $this->register();
@@ -67,16 +69,18 @@
                 $newUser = new User();
                 $newUserDAO = new UserDAO();
                 if($this->validateFields($newUserDAO->getFields())){
-                    $newUser->setId($_POST['id']);
-                    $newUser->setName($_POST['name']);
-                    $newUser->setEmail($_POST['email']);
-                    $newUser->setPhone($_POST['phone']);
-                    $newUser->setPassword($_POST['password']);
-                    $newUser->setFunction($_POST['function']);
+                    $newUser->setId($_POST['id_user']);
+                    $newUser->setName($_POST['name_user']);
+                    $newUser->setEmail($_POST['email_user']); 
+                    $newUser->setPhone($_POST['phone_user']);
+                    $newUser->setPassword($_POST['password_user']);
+                    $newUser->setFunction($_POST['function_user']);
                     $newUserDAO->updateByID($newUser);
+                    $this->setViewVar('error','');
+                    unset($_COOKIE['Carrinho']); 
                 } 
-
-                $this->register();
+                $params = array($_POST['id_user']);
+                $this->edit($params);
             }    
         }
 

@@ -3,33 +3,50 @@
         <h1 class="titleList">Cadastro de usuário</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST. '/user/post' ?>" method="post"  >
+        <form action="<?= 'http://' . APP_HOST . '/user/post' ?>" method="post">
             <div class="row">
                 <div class="col-4">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_user" class="inputAdd" placeholder="nome">
                 </div>
                 <div class="col-4">
-                    <input type="password" name="password" class="inputAdd" placeholder="senha">
+                    <input type="password" name="password_user" class="inputAdd" placeholder="senha">
                 </div>
                 <div class="col-4">
-                    <select  class="selectAdd" name="function"> 
-                            <option value="MASTER"> MASTER </option>
-                            <option value="NORMAL"> NORMAL </option>
+                    <select class="selectAdd" name="function_user">
+                        <option value="MASTER"> MASTER </option>
+                        <option value="NORMAL"> NORMAL </option>
                     </select>
                 </div>
 
             </div>
             <div class="row mt-4">
                 <div class="col-4">
-                    <input type="text" name="email" class="inputAdd" placeholder="email">
+                    <input type="text" name="email_user" class="inputAdd" placeholder="email">
                 </div>
                 <div class="col-4">
-                    <input type="text" name="phone" class="inputAdd" placeholder="telefone">
+                    <input type="text" name="phone_user" class="inputAdd" placeholder="telefone">
                 </div>
             </div>
             <section class="enviar">
-                <button class="btn buttonAdd"  id="bt_save" name="bt_save" >Cadastrar Categoria</button>
+                <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Categoria</button>
             </section>
+            <?php
+            if (isset($this->view_var['error'])) {
+                if (empty($this->view_var['error'])) { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-success text-center" role="alert">
+                            Usuário cadastrado com sucesso
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-danger text-center" role="alert">
+                            <?= $this->view_var['error'] ?>
+                        </div>
+                    </div>
+            <?php  }
+            }
+            ?>
         </form>
     </div>
 </div>
@@ -53,6 +70,7 @@
         background-color: #CC7200;
         color: white;
     }
+
     .selectAdd {
         padding: 1rem;
         padding-right: 8rem !important;
@@ -63,6 +81,7 @@
         background-color: #CC7200;
         color: white;
     }
+
     .inputAdd::focus {
         color: white;
     }

@@ -1,5 +1,12 @@
 <?php
 $users = $this->view_var["users"];
+$hiddenOptions = '';
+if(isset($this->view_var["userLogin"])){
+    $user = $this->view_var["userLogin"];
+    if( $user->getFunction() == "NORMAL"){
+        $hiddenOptions = 'hidden';
+    }
+}
 ?>
 <div class="container">
     <div class="row headerBody">
@@ -53,8 +60,8 @@ $users = $this->view_var["users"];
                     <p></p>
                 </div>
                 <div class="col-2">
-                    <a class="linkButton" href="<?= 'http://' . APP_HOST. '/user/delete/' . $user->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
-                    <a class="linkButton" href="<?= 'http://' . APP_HOST. '/user/edit/' . $user->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a> 
+                    <a class="linkButton <?=  $hiddenOptions ?>" href="<?= 'http://' . APP_HOST. '/user/delete/' . $user->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
+                    <a class="linkButton <?=  $hiddenOptions ?>" href="<?= 'http://' . APP_HOST. '/user/edit/' . $user->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a> 
                 </div>
             </div>
         <?php } ?>
@@ -67,3 +74,8 @@ $users = $this->view_var["users"];
 
 
 </div>
+<style> 
+    .hidden {
+        display: none;
+    }
+</style>

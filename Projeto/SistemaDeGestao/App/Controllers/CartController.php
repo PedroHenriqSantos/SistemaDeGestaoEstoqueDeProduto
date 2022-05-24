@@ -34,12 +34,12 @@ use App\Models\DAO\ProductDAO;
             $newClientDAO = new ClientDAO();
 
             if($this->validateFields($newClientDAO->getFields())){
-                $newClient->setName($_POST['name']);
-                $newClient->setEmail($_POST['email']);
-                $newClient->setPhone($_POST['phone']);
-                $newClient->setStreet($_POST['street']);
-                $newClient->setDistrict($_POST['district']);
-                $newClient->setNumber($_POST['number']);
+                $newClient->setName($_POST['name_client']);
+                $newClient->setEmail($_POST['email_client']);
+                $newClient->setPhone($_POST['phone_client']);
+                $newClient->setStreet($_POST['street_client']);
+                $newClient->setDistrict($_POST['district_client']);
+                $newClient->setNumber($_POST['number_client']);
                 $idClient = $newClientDAO->saveDates($newClient);
           
                 $newCartDAO = new CartDAO();
@@ -55,6 +55,7 @@ use App\Models\DAO\ProductDAO;
                     $newSale->setIdCart($idCart);
                     $newSale->setIdClient($idClient);
                     $idSale = $newSaleDAO->saveDates($newSale);
+                    $this->setViewVar('error','');
                 }
 
             }

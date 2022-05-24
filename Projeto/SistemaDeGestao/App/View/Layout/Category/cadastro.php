@@ -6,12 +6,29 @@
         <form action="<?= 'http://' . APP_HOST . '/category/post' ?>" method="post" enctype="multipart/form-data">
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_category" class="inputAdd" placeholder="nome">
                 </div>
 
                 <section class="enviar">
                     <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Categoria</button>
                 </section>
+                <?php
+                if (isset($this->view_var['error'])) {
+                    if (empty($this->view_var['error'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-success text-center" role="alert">
+                                Categoria cadastrada com sucesso
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <?= $this->view_var['error'] ?>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
             </div>
         </form>
     </div>

@@ -45,6 +45,24 @@
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Produto</button>
             </section>
+            <?php
+            if (isset($this->view_var['error'])) {
+                if (empty($this->view_var['error'])) { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-success text-center" role="alert">
+                            Produto cadastrado com sucesso
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-danger text-center" role="alert">
+                           <?= $this->view_var['error'] ?>
+                        </div>
+                    </div>
+            <?php  }
+            }
+            ?>
+
         </form>
     </div>
 </div>

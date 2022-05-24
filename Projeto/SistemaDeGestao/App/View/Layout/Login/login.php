@@ -5,12 +5,29 @@
         </div>
         <form method="post" action="<?= 'http://' . APP_HOST . '/login/validate' ?>">
             <div class="row mt-3">
-                <input type="text" name="email" class="inputAdd" placeholder="email">
+                <input type="text" name="email_user" class="inputAdd" placeholder="email">
             </div>
             <div class="row">
-                <input type="password" name="password" class="inputAdd" placeholder="password">
+                <input type="password" name="password_user" class="inputAdd" placeholder="password">
             </div>
             <button class="btnLogin" name="bt_login">Enviar</button>
+            <?php
+                if (isset($this->view_var['error'])) {
+                    if (empty($this->view_var['error'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-success text-center" role="alert">
+                                login feito com sucesso - aguarde...
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <?= $this->view_var['error'] ?>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
         </form>
     </div>
 </body>

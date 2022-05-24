@@ -4,22 +4,22 @@ namespace App\Models\Entity;
 
 /* Classe com os atributos do cliente */
 class User{
-    private $id;
-    private $name;
-    private $email;
-    private $phone;
-    private $password;
-    private $function;
+    private $id_user;
+    private $name_user;
+    private $email_user;
+    private $phone_user;
+    private $password_user;
+    private $function_user;
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_user;
     }
 
 
-    public function setId($id)
+    public function setId($id_user)
     {
-        $this->id = $id;
+        $this->id_user = $id_user;
 
         return $this;
     }
@@ -29,13 +29,13 @@ class User{
 
     public function getName()
     {
-        return $this->name;
+        return $this->name_user;
     }
 
 
-    public function setName($name)
+    public function setName($name_user)
     {
-        $this->name = $name;
+        $this->name_user = $name_user;
 
         return $this;
     }
@@ -45,13 +45,13 @@ class User{
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->email_user;
     }
 
 
-    public function setEmail($email)
+    public function setEmail($email_user)
     {
-        $this->email = $email;
+        $this->email_user = $email_user;
 
         return $this;
     }
@@ -60,12 +60,12 @@ class User{
 
     public function getPhone()
     {
-        return $this->phone;
+        return $this->phone_user;
     }
 
-    public function setPhone($phone)
+    public function setPhone($phone_user)
     {
-        $this->phone = $phone;
+        $this->phone_user = $phone_user;
 
         return $this;
     }
@@ -74,12 +74,12 @@ class User{
 
     public function getPassword()
     {
-        return $this->password;
+        return $this->password_user;
     }
 
-    public function setPassword($password)
+    public function setPassword($password_user)
     {
-        $this->password = $password;
+        $this->password_user = $password_user;
 
         return $this;
     }
@@ -88,12 +88,12 @@ class User{
  
     public function getFunction()
     {
-        return $this->function;
+        return $this->function_user;
     }
 
-    public function setFunction($function)
+    public function setFunction($function_user)
     {
-        $this->function = $function;
+        $this->function_user = $function_user;
 
         return $this;
     }
