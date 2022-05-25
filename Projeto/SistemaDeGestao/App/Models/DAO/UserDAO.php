@@ -83,7 +83,11 @@
                 );
                 
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class)[0]; 
+                $data =  $resut->fetchAll(\PDO::FETCH_CLASS,User::class);
+                if(count($data) > 0){
+                    return $data[0];
+                } 
+                return false;
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();

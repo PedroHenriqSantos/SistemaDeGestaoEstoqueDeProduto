@@ -1,6 +1,12 @@
 <?php
 $products = $this->view_var["products"];
-
+$hiddenRegister = '';
+if(isset($this->view_var["userLogin"])){
+    $user = $this->view_var["userLogin"];
+    if( $user->getFunction() == "NORMAL"){
+        $hiddenRegister = 'hidden';
+    }
+}
 ?>
 <div class="container">
     <div class="row headerBody">
@@ -54,8 +60,8 @@ $products = $this->view_var["products"];
                     <p></p>
                 </div>
                 <div class="col-2">
-                    <a class="linkButton" href="<?= 'http://' . APP_HOST . '/product/delete/' . $product->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
-                    <a class="linkButton" href="<?= 'http://' . APP_HOST . '/product/edit/' . $product->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="linkButton <?= $hiddenRegister ?>" href="<?= 'http://' . APP_HOST . '/product/delete/' . $product->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
+                    <a class="linkButton <?= $hiddenRegister ?> " href="<?= 'http://' . APP_HOST . '/product/edit/' . $product->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
                 </div>
             </div>
         <?php } ?>

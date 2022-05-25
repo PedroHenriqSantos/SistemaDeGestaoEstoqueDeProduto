@@ -11,7 +11,7 @@
         private $action;
         private $params;
         private $controller_name;
-        private $controllersSet = ['user','category','product','login','cart'];
+        private $controllersSet = ['user','category','product','cart'];
         private $constrollersWithOutLogin = ['portfolio'];
         public function __construct(){
             $this->url();

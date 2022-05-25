@@ -77,7 +77,6 @@
                     $newUser->setFunction($_POST['function_user']);
                     $newUserDAO->updateByID($newUser);
                     $this->setViewVar('error','');
-                    unset($_COOKIE['Carrinho']); 
                 } 
                 $params = array($_POST['id_user']);
                 $this->edit($params);

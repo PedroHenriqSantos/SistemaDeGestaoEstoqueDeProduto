@@ -57,7 +57,7 @@ use App\Models\DAO\ProductDAO;
                     $idSale = $newSaleDAO->saveDates($newSale);
                     $this->setViewVar('error','');
                 }
-
+                unset($_COOKIE['Carrinho']); 
             }
 
         }

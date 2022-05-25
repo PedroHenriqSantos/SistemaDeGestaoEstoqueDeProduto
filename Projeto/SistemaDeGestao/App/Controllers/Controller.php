@@ -9,6 +9,7 @@ abstract class Controller{
     //Função que constroi dinamicamente as páginas sem precisar repetir código
     public function render($view,$header = "header"){
         $this->view_var = $this->getViewVar();
+
         $this->setVarAllRender();
         require_once PATH . "/App/View/Layout/" . $header . ".php";
         require_once PATH . "/App/View/Layout/menu.php";
@@ -16,6 +17,7 @@ abstract class Controller{
         require_once PATH . "/App/View/Layout/footer.php";
 
     }
+    
     public function setVarAllRender(){
         if(isset($_SESSION['idUser'])){
             $userRepository = new UserDAO();
