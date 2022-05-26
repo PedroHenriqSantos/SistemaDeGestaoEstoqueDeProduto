@@ -65,6 +65,28 @@
 .linkButton{
     text-decoration: none;
 }
+.lupa {
+    display: inline-block;
+    background-color: #CC7200 !important;
+    color: white !important;
+    padding: 0.3rem;
+    border: white;
+}
+
+.lupa:hover {
+    background-color: #824700 !important;
+
+}
 .fa-square-minus,.fa-pen-to-square,.fa-cart-plus{
     color: #FFAB40;
 }
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+ 

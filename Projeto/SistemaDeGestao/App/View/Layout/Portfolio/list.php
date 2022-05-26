@@ -1,5 +1,7 @@
 <?php
 $products = $this->view_var["products"];
+$productsRanking = $this->view_var["productsRanking"];
+
 ?>
 
 <body>
@@ -19,7 +21,40 @@ $products = $this->view_var["products"];
                             <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
                             <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
-                            <img id="ava" src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="ava" class="imagePortfolio">
+                        </div>
+                    </a>
+                </div>
+
+            <?php } ?>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="titlePortfolio">Produtos Melhores Avaliados </h2>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+            foreach ($productsRanking as $product) {
+            ?>
+
+                <div class="col-3">
+                    <a href="<?= 'http://' . APP_HOST . '/portfolio/productDetail/' . $product->getId() ?>" class="linkProduct" target="_blank">
+                        <div class="boxProduct">
+                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
+                            <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
+                            <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
+                            <?php
+                            $countStarFull = 0;
+                            for ($i = 0; $i < 5; $i++) {
+                                if ($i < $product->rate) { ?>
+                                    <label class="starFull"> <i class="fas fa-star"></i> </label>
+                                <?php
+                                    $countStarFull++;
+                                } else { ?>
+                                    <label class="starEmpty"> <i class="fas fa-star"></i> </label>
+
+                            <?php }
+                            } ?>
                         </div>
                     </a>
                 </div>
@@ -32,6 +67,14 @@ $products = $this->view_var["products"];
 
 
 <style>
+    .starEmpty {
+        color: #FFAB40;
+    }
+
+    .starFull {
+        color: #CC7200;
+    }
+
     .linkProduct {
         text-decoration: none;
     }

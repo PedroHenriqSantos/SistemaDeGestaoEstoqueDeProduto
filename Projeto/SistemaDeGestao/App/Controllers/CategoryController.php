@@ -12,7 +12,15 @@
             $this->render('Layout/Category/cadastro');
         }
         public function list(){
-            $this->setViewVar('categorys',$this->get());
+            $categoryDAO = new CategoryDAO();
+
+            if(isset($_POST["search"])){
+                $categorys = $categoryDAO->findByName($_POST["search"]);
+            }else{
+    
+                $categorys = $categoryDAO->findAll();
+            }
+            $this->setViewVar('categorys',$categorys);
             $this->render('Layout/Category/list');
         }
         public function get(){
@@ -22,13 +30,6 @@
         }
         public function edit($params){
             $id = $params[0];
-            $categoryDAO = new CategoryDAO();
-            $category = $categoryDAO->findById($id);
-            $this->setViewVar('category',$category); 
-            $this->render('Layout/Category/edit');
-        }
-        public function search(){
-            $id = $_POST['idSearch'];
             $categoryDAO = new CategoryDAO();
             $category = $categoryDAO->findById($id);
             $this->setViewVar('category',$category); 

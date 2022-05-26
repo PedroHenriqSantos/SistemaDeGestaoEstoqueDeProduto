@@ -40,7 +40,20 @@
             }
         }
 
-
+        public function findByName($name_user){
+            try{
+                $sql = "SELECT *" . " FROM " . $this->table_name;
+                $sql .= " WHERE name_user LIKE  :name_user ";
+                $values = array(
+                    ":name_user" => '%' . $name_user . '%' ,
+                );
+                $resut = $this->select($sql, $values);
+                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+    
+            }catch(PDOException $error ){
+                echo "ERROR: ".$error->getMessage();
+            } 
+        }
         /* Função responsável por buscar todos os usuários dentro do banco de dados */
         public function findAll($where = null,$values = null){
             try{

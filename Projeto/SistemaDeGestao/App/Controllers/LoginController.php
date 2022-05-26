@@ -28,6 +28,11 @@ use App\Models\Entity\User;
         }
         
     }
+    public function logout(){
+        unset($_SESSION['logado']);
+        unset($_SESSION['idUser']);
+        session_destroy();
+    }
    
     
 }

@@ -11,6 +11,7 @@
                     </div>
                     <div class="col-12 mt-3">
                         Adicione a imagem do produto
+                        
                     </div>
                 </a>
                 <input type="file" class="inputFile" name="image_product" value="" />

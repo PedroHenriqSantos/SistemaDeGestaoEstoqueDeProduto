@@ -34,7 +34,23 @@ $comments = $this->view_var["comments"];
         <div class="row">
             <div class="col-4 inforProduct">
                 <h3>Avaliação: </h3>
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/avaliacao.png' ?>" alt="avaliacao" id="avaliacao">
+                <form class="avaliacoes d-inline-block" action="<?= 'http://' . APP_HOST . '/avaliation/post' ?>" method="post">
+                    <input type="text" class="hidden" id="fk_id_product" name="fk_id_product" value="<?= $product->getId() ?>" />
+                    <input type="text" class="hidden" id="rate_avaliation" name="rate_avaliation" />
+                    <label for="estrela_1" class="labelStar"> <i class="fas fa-star"></i></label>
+                    <input type="radio" class="hidden star" id="estrela_1" name="estrela" value="" />
+                    <label for="estrela_2" class="labelStar"> <i class="fas fa-star"></i> </label>
+                    <input type="radio" class="hidden star" id="estrela_2" name="estrela" value="" />
+                    <label for="estrela_3" class="labelStar"> <i class="fas fa-star"></i> </label>
+                    <input type="radio" class="hidden star" id="estrela_3" name="estrela" value="" />
+                    <label for="estrela_4" class="labelStar"> <i class="fas fa-star"></i> </label>
+                    <input type="radio" class="hidden star" id="estrela_4" name="estrela" value="" />
+                    <label for="estrela_5" class="labelStar"> <i class="fas fa-star"></i> </label>
+                    <input type="radio" class="hidden star" id="estrela_5" name="estrela" value="" />
+                    <button class="btn buttonAvaliation" id="bt_save_avaliation" name="bt_save_avaliation">Enviar avaliação</button>
+
+                </form>
+
             </div>
             <div class="col-8"></div>
         </div>
@@ -81,21 +97,19 @@ $comments = $this->view_var["comments"];
                 </div>
                 <div class="col-12">
                     <?php
-                    if (isset($this->view_var['msgComment'])) {
-                        if (empty($this->view_var['msgComment'])) { ?>
-                            <div class="row mt-4">
-                                <div class="alert alert-success text-center" role="alert">
-                                    Comentário cadastrado com sucesso
-                                </div>
+                    if (isset($this->view_var['successComment'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-success text-center" role="alert">
+                                <?= $this->view_var['successComment'] ?>
                             </div>
-                        <?php } else { ?>
-                            <div class="row mt-4">
-                                <div class="alert alert-danger text-center" role="alert">
-                                    <?= $this->view_var['msgComment'] ?>
-                                </div>
+                        </div>
+                    <?php } else if (isset($this->view_var['errorComment'])) { ?>
+                        <div class="row mt-4">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <?= $this->view_var['errorComment'] ?>
                             </div>
-                    <?php  }
-                    } ?>
+                        </div>
+                    <?php } ?>
                 </div>
             </form>
         </div>
@@ -104,6 +118,17 @@ $comments = $this->view_var["comments"];
 </body>
 
 <style>
+    .labelStar.isChecked {
+        color: #CC7200;
+
+    }
+
+    .labelStar {
+        color: #FFAB40;
+
+    }
+
+
     .hidden {
         display: none;
     }
@@ -119,6 +144,16 @@ $comments = $this->view_var["comments"];
 
     .buttonAdd {
         padding: 1rem 2rem 1rem 2rem;
+        background-color: #DD6B20;
+        color: white;
+    }
+
+    .buttonAvaliation:hover {
+        background-color: #c78b2b;
+    }
+
+    .buttonAvaliation {
+        padding: 0.5rem;
         background-color: #DD6B20;
         color: white;
     }

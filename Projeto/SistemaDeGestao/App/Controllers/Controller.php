@@ -24,6 +24,13 @@ abstract class Controller{
             $userLogin = $userRepository->findById($_SESSION['idUser']);
             $this->setViewVar('userLogin',$userLogin);
         }
+        if( isset($_COOKIE["Carrinho"]) && $_COOKIE["Carrinho"] != null){
+            $cart = json_decode($_COOKIE["Carrinho"]);
+            $this->setViewVar('countCart',count($cart));
+        }else{
+            $this->setViewVar('countCart',0);
+
+        } 
     }
     public function getUserLogin(){
         if(isset($_SESSION['idUser'])){

@@ -22,6 +22,7 @@ if(isset($this->view_var["userLogin"])){
                     </div>
                     <div class="col-12 mt-3">
                         Adicione a imagem do produto
+                        <p class="currentImageText"> Atual: <?=  $product->getImage()  ?> </p>
                     </div>
                 </a>
                 <input type="file" class="inputFile" name="image_product" value="<?= $product->getImage() ?>" />
@@ -85,6 +86,11 @@ if(isset($this->view_var["userLogin"])){
     .hidden {
         display: none;
     }
+    .currentImageText{
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
 
     .formAdd {
         margin-top: 2rem;
@@ -95,7 +101,7 @@ if(isset($this->view_var["userLogin"])){
         color: white;
         border: none;
         width: 200px;
-        height: 150px;
+        height: 180px;
         border-radius: 10px;
         text-align: center;
         cursor: pointer;

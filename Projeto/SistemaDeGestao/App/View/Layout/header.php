@@ -1,6 +1,6 @@
-<?php 
+<?php
 $nameUser =  '';
-if(isset($this->view_var["userLogin"])){
+if (isset($this->view_var["userLogin"])) {
     $user = $this->view_var["userLogin"];
     $nameUser = $user->getName();
 }
@@ -34,6 +34,9 @@ if(isset($this->view_var["userLogin"])){
                     </div>
                     <div class="col-9 texto">
                         <p>Olá <?= $nameUser ?>, Bem Vindo!</p>
+                        <a class="btn logout" href="<?= 'http://' . APP_HOST . '/login/logout' ?>">Logout</a>
+                        <a class="btn logout" href="<?= 'http://' . APP_HOST . '/portfolio/index' ?>">Ir para o Portfólio</a>
+
                     </div>
                 </div>
                 <div class="row ">
@@ -47,7 +50,7 @@ if(isset($this->view_var["userLogin"])){
                         </div>
 
                         <div class="campo col-3">
-                            <a href="<?= 'http://' . APP_HOST . '/user/list' ?>" class="linkMenu">  Usuários </a>
+                            <a href="<?= 'http://' . APP_HOST . '/user/list' ?>" class="linkMenu"> Usuários </a>
 
                         </div>
 
@@ -60,6 +63,17 @@ if(isset($this->view_var["userLogin"])){
 
 
     <style>
+
+        .logout:hover {
+            background-color: #c78b2b;
+        }
+
+        .logout {
+            padding: 0.5rem;
+            background-color: #DD6B20;
+            color: white;
+        }
+
         .header {
             background-color: #824700;
             padding: 1rem 0rem 1rem 0rem;

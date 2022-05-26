@@ -12,6 +12,7 @@ class Product{
     private $quantity_product;
     private $idCategory;
     private $image_product;
+    private $avaliation_product;
 
     public function getId()
     {
@@ -108,7 +109,18 @@ class Product{
         return $this;
     }
 
+    public function getAvaliation()
+    {
+        return $this->avaliation_product;
+    }
 
+
+    public function setAvaliation($avaliation_product)
+    {
+        $this->avaliation_product = $avaliation_product;
+
+        return $this;
+    }
 
 }
 

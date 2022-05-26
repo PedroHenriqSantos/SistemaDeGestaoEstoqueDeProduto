@@ -29,15 +29,16 @@
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <div class="col-2 logo">
+                            <div class="col-1 logo">
                             </div>
                             <div class="col-9">
-                                <form class="search">
+                                <form class="form-outline barra-pesquisa" action="<?= 'http://' . APP_HOST . '/portfolio/index' ?>" method="POST">
                                     <input type="text" name="search" id="search" class="searchInput porfolioSearch form-control " placeholder="Pesquisar" autocomplete="off">
                                     <button type="submit" class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                             </div>
-                            <div class="col-1">
+                            <div class="col-2">
+                                <span class="countCart"> <?= $this->view_var['countCart'] ?></span>
                                 <a href="<?= 'http://' . APP_HOST . '/cart/buy' ?>" id="carrinho"><i class="fa-solid fa-cart-plus"></i></a>
                             </div>
                         </div>
@@ -50,81 +51,10 @@
     </header>
 </body>
 <style>
-    /*
-        input::placeholder {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 21px;
-            color: #FFFFFF;
-        }
-
-        input[type="text"] {
-            color: #FFFFFF;
-        }
- 
-        input:focus {
-            outline: none;
-        }
-
-        input {
-            position: absolute;
-            width: 300px;
-            height: 45.25px;
-            left: 855px;
-            top: 16px;
-
-            background: #CC7200;
-            border-radius: 6px;
-        }
-
-        #lupa {
-            position: absolute;
-            width: 55px;
-            height: 52px;
-            left: 1165px;
-            top: 16px;
-            background: #CC7200;
-            border-radius: 6px;
-            cursor: pointer;
-            color: #d8a869;
-            font-size: 1.2em;
-            border-radius: 0.2em;
-            border: none;
-            padding: 0.2em;
-        }
-
-        #search {
-            font-size: 1.2em;
-            border-radius: 0.2em;
-            border: none;
-            padding: 0.2em;
-        }
-
-        #carrinho {
-            position: absolute;
-            width: 55px;
-            height: 52px;
-            left: 1440px;
-            top: 16px;
-            background: #CC7200;
-            border-radius: 6px;
-            cursor: pointer;
-            color: #d8a869;
-            font-size: 1.2em;
-            border-radius: 0.2em;
-            border: none;
-            padding: 0.2em;
-        }
-
-
-*/
-    .lupa {
-        display: inline-block;
-        background-color: #CC7200 !important;
-        color: white !important;
-        padding: 0.3rem;
+    .countCart {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
     }
 
     .search {

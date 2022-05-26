@@ -15,7 +15,15 @@
             $this->render('Layout/User/cadastro');
         }
         public function list(){
-            $this->setViewVar('users',$this->get());
+            $userDAO = new UserDAO();
+
+            if(isset($_POST["search"])){
+                $users = $userDAO->findByName($_POST["search"]);
+            }else{
+    
+                $users = $userDAO->findAll();
+            }
+            $this->setViewVar('users',$users);
             $this->render('Layout/User/list');
         }
         public function principal(){
@@ -48,14 +56,6 @@
 
         public function edit($params){
             $id = $params[0];
-            $newUserDAO = new UserDAO();
-            $user = $newUserDAO->findById($id);
-            $this->setViewVar('user',$user); 
-            $this->render('Layout/User/edit');
-        }
-        public function search(){
-            $id = $_POST['idSearch'];
-
             $newUserDAO = new UserDAO();
             $user = $newUserDAO->findById($id);
             $this->setViewVar('user',$user); 

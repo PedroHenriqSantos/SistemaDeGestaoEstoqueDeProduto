@@ -7,8 +7,9 @@ $categorys = $this->view_var["categorys"];
             <h1 class="titleList">Lista de Categorias</h1>
         </div>
         <div class="col-4">
-            <form class="form-outline barra-pesquisa" action="<?= 'http://' . APP_HOST . '/category/search' ?>" method="POST">
-                <input type="text" name="idSearch" id="form1" class="searchInput form-control " placeholder="Pesquisar Categoria pelo código" aria-label="Search" />
+            <form class="form-outline barra-pesquisa" action="<?= 'http://' . APP_HOST . '/category/list' ?>" method="POST">
+                <input type="text" name="search" id="search" class="searchInput porfolioSearch form-control " placeholder="Pesquisar" autocomplete="off">
+                <button type="submit" class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
     </div>

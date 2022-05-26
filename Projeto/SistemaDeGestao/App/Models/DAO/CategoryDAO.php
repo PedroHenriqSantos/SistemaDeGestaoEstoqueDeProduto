@@ -32,8 +32,20 @@
                 echo "ERROR: ".$error->getMessage();
             }
         }
-
-
+        public function findByName($name_category){
+            try{
+                $sql = "SELECT *" . " FROM " . $this->table_name;
+                $sql .= " WHERE name_category LIKE  :name_category ";
+                $values = array(
+                    ":name_category" => '%' . $name_category . '%' ,
+                );
+                $resut = $this->select($sql, $values);
+                return $resut->fetchAll(\PDO::FETCH_CLASS,Category::class); 
+    
+            }catch(PDOException $error ){
+                echo "ERROR: ".$error->getMessage();
+            } 
+        }
         /* Função responsável por buscar todos os usuários dentro do banco de dados */
         public function findAll($where = null,$values = null){
             try{

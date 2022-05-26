@@ -16,10 +16,11 @@
                     $newComment->setComment($_POST['comment_comment']);
                     $newComment->setProduct($_POST['fk_id_product']);
                     $commentDAO->saveDates($newComment);
-                    $this->redirectToUrl("/portfolio/successComment/" . $_POST['fk_id_product']);
+
+                    $this->redirectToUrl("/portfolio/productDetail/" . $_POST['fk_id_product'] . '/success');
                 }
             }
-            $this->redirectToUrl("/portfolio/productDetail/" . $_POST['fk_id_product']);
+            $this->redirectToUrl("/portfolio/productDetail/" . $_POST['fk_id_product'] . "/error");
        
 
         }

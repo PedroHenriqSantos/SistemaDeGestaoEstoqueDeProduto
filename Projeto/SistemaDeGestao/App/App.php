@@ -11,8 +11,8 @@
         private $action;
         private $params;
         private $controller_name;
-        private $controllersSet = ['user','category','product','cart'];
-        private $constrollersWithOutLogin = ['portfolio','comment'];
+        private $controllersSet = ['user','category','product'];
+        private $constrollersWithOutLogin = ['portfolio','comment','cart','avaliation'];
         public function __construct(){
             $this->url();
         }
@@ -46,7 +46,6 @@
             }
       
             $nameclass = "\\App\\Controllers\\" . $this->controller_name; //Cria o nome da classe procurada
-      
             //Caso a classe não exista o processo morre
             if(!class_exists($nameclass)){
                 echo "Error na aplicação";

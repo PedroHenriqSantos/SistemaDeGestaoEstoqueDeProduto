@@ -22,22 +22,19 @@ class ProductController extends Controller
     }
     public function list()
     {
-        $this->setViewVar('products',$this->get());
+        $productDAO = new ProductDAO();
+        if(isset($_POST["search"])){
+            $products = $productDAO->findByName($_POST["search"]);
+        }else{
+
+            $products = $productDAO->findAll();
+        }
+        $this->setViewVar('products',$products);
         $this->render('Layout/Product/list');
         
     }
     public function edit($params){
         $id = $params[0];
-        $productDAO = new ProductDAO();
-        $product = $productDAO->findById($id);
-        $this->setViewVar('product',$product); 
-        $categoryDAO = new CategoryController();
-        $this->setViewVar('categorys', $categoryDAO->get());
-        $this->render('Layout/Product/edit');
-    }
-
-    public function search(){
-        $id = $_POST['idSearch'];
         $productDAO = new ProductDAO();
         $product = $productDAO->findById($id);
         $this->setViewVar('product',$product); 
@@ -102,6 +99,8 @@ class ProductController extends Controller
         }
     }
 
+
+
     public function update(){
 
 
@@ -126,6 +125,9 @@ class ProductController extends Controller
             $this->edit($params);
         }
     }
+
+
+    
 
 
 }

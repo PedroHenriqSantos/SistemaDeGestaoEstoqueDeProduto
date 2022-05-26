@@ -63,6 +63,7 @@ abstract class BaseDAO
 
         if (!empty($sql)) {
             $statement = $this->connection->prepare($sql);
+            
             $statement->execute($values);
             return $statement;
         }
