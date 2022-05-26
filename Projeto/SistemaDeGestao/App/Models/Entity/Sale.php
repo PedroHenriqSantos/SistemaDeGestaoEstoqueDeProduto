@@ -4,19 +4,20 @@ namespace App\Models\Entity;
 
 /* Classe com os atributos do cliente */
 class Sale{
-    private $id;
-    private $idCart;
-    private $idClient;
+    private $id_sale;
+    private $fk_id_cart;
+    private $fk_id_client;
+    private $typeUser_sale;
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_sale;
     }
 
 
-    public function setId($id)
+    public function setId($id_sale)
     {
-        $this->id = $id;
+        $this->id_sale = $id_sale;
 
         return $this;
     }
@@ -26,26 +27,39 @@ class Sale{
 
     public function getIdCart()
     {
-        return $this->idCart;
+        return $this->fk_id_cart;
     }
 
 
-    public function setIdCart($idCart)
+    public function setIdCart($fk_id_cart)
     {
-        $this->idCart = $idCart;
+        $this->fk_id_cart = $fk_id_cart;
 
         return $this;
     }
 
     public function getIdClient()
     {
-        return $this->idClient;
+        return $this->fk_id_client;
     }
 
 
-    public function setIdClient($idClient)
+    public function setIdClient($fk_id_client)
     {
-        $this->idClient = $idClient;
+        $this->fk_id_client = $fk_id_client;
+
+        return $this;
+    }
+
+    public function getTypeuser()
+    {
+        return $this->typeUser_sale;
+    }
+
+
+    public function setTypeuser($typeUser_sale)
+    {
+        $this->typeUser_sale = $typeUser_sale;
 
         return $this;
     }

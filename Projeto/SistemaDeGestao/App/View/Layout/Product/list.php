@@ -1,9 +1,9 @@
 <?php
 $products = $this->view_var["products"];
 $hiddenRegister = '';
-if(isset($this->view_var["userLogin"])){
+if (isset($this->view_var["userLogin"])) {
     $user = $this->view_var["userLogin"];
-    if( $user->getFunction() == "NORMAL"){
+    if ($user->getFunction() == "NORMAL") {
         $hiddenRegister = 'hidden';
     }
 }
@@ -14,8 +14,8 @@ if(isset($this->view_var["userLogin"])){
             <h1 class="titleList">Lista de Produtos</h1>
         </div>
         <div class="col-4">
-            <form class="form-outline barra-pesquisa">
-                <input type="search" id="form1" class="searchInput form-control " placeholder="Pesquisar código de produto" aria-label="Search" />
+            <form class="form-outline barra-pesquisa" action="<?= 'http://' . APP_HOST . '/product/search' ?>" method="POST">
+                <input type="text" name="idSearch" id="form1" class="searchInput form-control " placeholder="Pesquisar Usuário pelo código" aria-label="Search" />
             </form>
         </div>
     </div>
@@ -68,14 +68,14 @@ if(isset($this->view_var["userLogin"])){
     </div>
     <!--Botão cadastrar produto-->
     <div class="row">
-    <div class="col-12 botao">
-            <a href="<?= 'http://' . APP_HOST. '/product/register' ?>" target="_blank" class="btn addButton">Cadastrar Produto</a>
+        <div class="col-12 botao">
+            <a href="<?= 'http://' . APP_HOST . '/product/register' ?>" target="_blank" class="btn addButton">Cadastrar Produto</a>
         </div>
     </div>
 
 
 </div>
-<style> 
+<style>
     .hidden {
         display: none;
     }

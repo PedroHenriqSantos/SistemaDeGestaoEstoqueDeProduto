@@ -5,6 +5,7 @@
     use App\Models\DAO\UserDAO;
     use App\Models\Entity\User;
     use App\Models\DAO\SaleDAO;
+    use App\Models\Entity\Sale;
 
     /* Classe responsável por integrar o Model do usuário (UserDAO) com a view do site */
     class UserController extends Controller{
@@ -20,13 +21,41 @@
         public function principal(){
 
             $newSaleDAO = new SaleDAO();
-            $sales = $newSaleDAO->findAllSaleWithClientAndCart();
+            $user = $this->getUserLogin();
+            $sales = $newSaleDAO->findAllSaleWithClientAndCart($user->getFunction());
+            
             $this->setViewVar('sales',$sales);
 
             $this->render('Layout/User/principal');
         }
+
+        public function changeTypeSale($params){
+            $userType = $params[0];
+            $idSale = $params[1];
+            $saleDao = new SaleDAO();
+            if($userType === "NORMAL"){
+                $updateSale = $saleDao->findById($idSale);
+                $updateSale->setTypeuser("MASTER");
+                $saleDao->updateByID( $updateSale);
+            }else if($userType === "MASTER"){
+                $sale = new Sale();
+                $sale->setId($idSale);
+                $saleDao->deleteByID($sale);
+            }
+            $this->principal();
+
+        }
+
         public function edit($params){
             $id = $params[0];
+            $newUserDAO = new UserDAO();
+            $user = $newUserDAO->findById($id);
+            $this->setViewVar('user',$user); 
+            $this->render('Layout/User/edit');
+        }
+        public function search(){
+            $id = $_POST['idSearch'];
+
             $newUserDAO = new UserDAO();
             $user = $newUserDAO->findById($id);
             $this->setViewVar('user',$user); 

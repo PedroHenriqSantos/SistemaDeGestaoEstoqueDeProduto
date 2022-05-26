@@ -25,6 +25,13 @@ abstract class Controller{
             $this->setViewVar('userLogin',$userLogin);
         }
     }
+    public function getUserLogin(){
+        if(isset($_SESSION['idUser'])){
+            $userRepository = new UserDAO();
+            $userLogin = $userRepository->findById($_SESSION['idUser']);
+            return $userLogin;
+        }
+    }
     public function getViewVar(){
         return $this->view_var;
     }

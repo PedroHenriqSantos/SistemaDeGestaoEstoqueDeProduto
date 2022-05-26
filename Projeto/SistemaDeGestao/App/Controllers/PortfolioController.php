@@ -24,6 +24,10 @@ use App\Models\Entity\Comment;
         
         $product = $productDao->findById( $id );
         $this->setViewVar('product',$product);
+        $comments = $this->commentsProduct($id);
+        $this->setViewVar('msg','Error ao cadastrar um comentário, verifique o nome e o comentário'); 
+        $this->setViewVar('comments',$comments);
+
         $this->render('Layout/Portfolio/detailProduct',"Portfolio/header");
     }
     public function saveCart($params){
@@ -40,19 +44,16 @@ use App\Models\Entity\Comment;
         $this->productDetail($params);
     }
 
-    public function sendComment(){
-        if (isset($_POST['bt_save_comment'])) {
-            $commentDAO = new CommentDAO();
-            if($this->validateFields($commentDAO->getFields())){ 
-                $comment = new Comment();
-                $comment->setName($_POST['name']);
-                $comment->setComment($_POST['comment']);
-                $commentDAO->saveDates($comment);
-                $this->setViewVar('msg','Comentário cadastrado com sucesso'); //Confirma que o registro foi feito com sucesso
-            }
-        }
+    public function successComment($params){
+        $this->setViewVar('msg',''); 
+        
 
-        $this->render('Layout/Portfolio/detailProduct');
+        $this->productDetail($params);
+    }
+    public function commentsProduct($id){
+        $commentDAO = new CommentDAO();
+        $comments = $commentDAO->findByProduct($id);
+        return $comments;
     }
    
     

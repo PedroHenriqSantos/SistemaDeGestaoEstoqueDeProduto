@@ -1,6 +1,8 @@
 <?php
 $product = $this->view_var["product"];
+$comments = $this->view_var["comments"];
 ?>
+
 <body>
     <div class="container">
         <div class="row">
@@ -17,7 +19,7 @@ $product = $this->view_var["product"];
                     <h4 class="descriptionProduct"><?= $product->getDescription() ?></h4>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                <a href="<?= 'http://' . APP_HOST. '/portfolio/saveCart/' . $product->getId() ?>"  class="btn buttonBuy">Comprar</a>
+                    <a href="<?= 'http://' . APP_HOST . '/portfolio/saveCart/' . $product->getId() ?>" class="btn buttonBuy">Comprar</a>
 
                 </div>
             </div>
@@ -47,54 +49,53 @@ $product = $this->view_var["product"];
                 <h3 class="titlePortfolio">Comentarios</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2">
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
+        <?php foreach ($comments as $comment) { ?>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
+                </div>
+                <div class="col-8">
+                    <div class="comentInput"> <?= $comment->getComment() ?> </div>
+                </div>
             </div>
-            <div class="col-8">
-                <input value="Pão delicioso" class="comentInput" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2">
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
-            </div>
-            <div class="col-8">
-                <input value="Pão delicioso" class="comentInput" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2">
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
-            </div>
-            <div class="col-8">
-                <input value="Pão delicioso" class="comentInput" />
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-12 justify-content-center d-flex ">
-                <button type="submit" class="buttonPlus"> Carregar mais </button>
-            </div>
-        </div>
+        <?php } ?>
+
         <div class="row">
             <div class="col-12">
                 <h3 class="titlePortfolio">Escreva seu comentário aqui: </h3>
             </div>
         </div>
         <div class="row mb-5">
-            <form class="row">
+            <form class="row" action="<?= 'http://' . APP_HOST . '/comment/save' ?>" method="post">
+                <input type="text" name="fk_id_product" value="<?= $product->getId() ?>" class="inputAdd hidden" placeholder="Produto">
                 <div class="col-4">
-                    <input type="text" name="comment" class="inputAdd" placeholder="Comentário">
+                    <input type="text" name="comment_comment" class="inputAdd" placeholder="Comentário">
                 </div>
                 <div class="col-4">
-                    <input type="text" name="name" class="inputAdd" placeholder="Nome">
+                    <input type="text" name="name_comment" class="inputAdd" placeholder="Nome">
                 </div>
                 <div class="col-4">
 
-                    <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Comentário</button>
+                    <button class="btn buttonAdd" id="bt_save_comment" name="bt_save_comment">Cadastrar Comentário</button>
+                </div>
+                <div class="col-12">
+                    <?php
+                    if (isset($this->view_var['msgComment'])) {
+                        if (empty($this->view_var['msgComment'])) { ?>
+                            <div class="row mt-4">
+                                <div class="alert alert-success text-center" role="alert">
+                                    Comentário cadastrado com sucesso
+                                </div>
+                            </div>
+                        <?php } else { ?>
+                            <div class="row mt-4">
+                                <div class="alert alert-danger text-center" role="alert">
+                                    <?= $this->view_var['msgComment'] ?>
+                                </div>
+                            </div>
+                    <?php  }
+                    } ?>
                 </div>
             </form>
         </div>
@@ -103,10 +104,15 @@ $product = $this->view_var["product"];
 </body>
 
 <style>
-    .imageProduct{
+    .hidden {
+        display: none;
+    }
+
+    .imageProduct {
         width: 100%;
         height: auto;
     }
+
     .buttonAdd:hover {
         background-color: #c78b2b;
     }
@@ -125,10 +131,11 @@ $product = $this->view_var["product"];
         outline: none;
         border: none;
         background-color: #CC7200;
-        
+
         color: white;
     }
-    .inputAdd::placeholder{
+
+    .inputAdd::placeholder {
         color: white;
     }
 

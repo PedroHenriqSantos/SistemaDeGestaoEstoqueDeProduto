@@ -39,15 +39,15 @@ if(isset($this->view_var["userLogin"])){
                 <div class="row ">
                     <div class="row menu">
                         <div class="campo col-3">
-                            <a href="<?= 'http://' . APP_HOST . '/product/list' ?>" class="linkMenu"> Cadastrar Produto </a>
+                            <a href="<?= 'http://' . APP_HOST . '/product/list' ?>" class="linkMenu"> Produtos </a>
                         </div>
 
                         <div class="campo col-3">
-                            <a href="<?= 'http://' . APP_HOST . '/category/list' ?>" class="linkMenu"> Cadastrar Categoria </a>
+                            <a href="<?= 'http://' . APP_HOST . '/category/list' ?>" class="linkMenu"> Categorias </a>
                         </div>
 
                         <div class="campo col-3">
-                            <a href="<?= 'http://' . APP_HOST . '/user/list' ?>" class="linkMenu"> Cadastrar Usuário </a>
+                            <a href="<?= 'http://' . APP_HOST . '/user/list' ?>" class="linkMenu">  Usuários </a>
 
                         </div>
 
@@ -109,9 +109,9 @@ if(isset($this->view_var["userLogin"])){
 
 
 
-
         .linkMenu:hover {
-            background-color: #c78b2b;
+            background-color: #FFAB20;
             transition: .5s;
+            color: white;
         }
     </style>

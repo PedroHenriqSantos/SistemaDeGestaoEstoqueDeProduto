@@ -27,6 +27,13 @@
             $this->setViewVar('category',$category); 
             $this->render('Layout/Category/edit');
         }
+        public function search(){
+            $id = $_POST['idSearch'];
+            $categoryDAO = new CategoryDAO();
+            $category = $categoryDAO->findById($id);
+            $this->setViewVar('category',$category); 
+            $this->render('Layout/Category/edit');
+        }
         public function post(){
             if(isset($_POST['bt_save'])){
                 $newCategory = new Category();

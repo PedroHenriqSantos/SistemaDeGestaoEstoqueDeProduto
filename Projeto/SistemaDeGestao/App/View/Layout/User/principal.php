@@ -1,6 +1,14 @@
 <?php
 $sales = $this->view_var["sales"];
 
+
+$userNormal = false;
+if (isset($this->view_var["userLogin"])) {
+  $user = $this->view_var["userLogin"];
+  if ($user->getFunction() == "NORMAL") {
+    $userNormal = true;
+  }
+}
 ?>
 
 <div class="container">
@@ -10,7 +18,7 @@ $sales = $this->view_var["sales"];
   <div class="row card_compras">
     <?php foreach ($sales as $sale) {
 
-      ?>
+    ?>
       <div class="col-4">
         <div class="card text-white">
           <div class="card-body">
@@ -25,6 +33,15 @@ $sales = $this->view_var["sales"];
             <p class="card-info"> Rua: <?= $sale->street_client ?></p>
             <p class="card-info"> Bairro: <?= $sale->district_client ?></p>
             <p class="card-info"> Número: <?= $sale->number_client ?></p>
+          </div>
+          <div class="card-footer">
+            <?php
+            if ($userNormal) { ?>
+              <a class="btn buttonChange" href="<?= 'http://' . APP_HOST . '/user/changeTypeSale/' . $user->getFunction() . "/" . $sale->id_sale   ?>">Enviar para o Master</a>
+            <?php } else { ?>
+              <a class="btn buttonChange" href="<?= 'http://' . APP_HOST . '/user/changeTypeSale/' . $user->getFunction() . "/" . $sale->id_sale   ?>">Estoque já alterado</a>
+            <?php }
+            ?>
           </div>
         </div>
       </div>
@@ -42,8 +59,25 @@ $sales = $this->view_var["sales"];
     margin-left: 50px;
   }
 
+  .card-footer {
+    text-align: center;
+    color: white;
+  }
+
+  .buttonChange {
+    color: white;
+    background-color: #FFAB40;
+  }
+
+  .buttonChange:hover {
+    background-color: #FFAB20;
+    transition: .5s;
+    color: white;
+  }
+
   .card {
     background-color: #824700;
+    margin-bottom: 2rem;
   }
 
   .fa-bread-slice {

@@ -71,13 +71,13 @@ use App\Models\Entity\Product;
         }
 
 
-        public function findAllSaleWithClientAndCart(){
+        public function findAllSaleWithClientAndCart($functionUser){
             try{
                 $sql = "SELECT *" . " FROM " . $this->table_name;
                 $sql .= " INNER JOIN clients on clients.id_client = sale.fk_id_client ";
                 $sql .= " INNER JOIN cart on cart.id_cart = sale.fk_id_cart ";
                 $sql .= " INNER JOIN products on products.id_product = cart.fk_id_product ";
-
+                $sql .= " WHERE typeUser_sale = '" . $functionUser . "'";
                 $resut = $this->select($sql);
                 return $resut->fetchAll(\PDO::FETCH_CLASS); 
     
@@ -90,7 +90,7 @@ use App\Models\Entity\Product;
     public function updateByID(Sale $sale){
         try{
             //Atributos pré-definidos
-            $cols = "id_sale = :id_sale, fk_id_cart = :fk_id_cart, fk_id_client =  :fk_id_client";
+            $cols = "id_sale = :id_sale, fk_id_cart = :fk_id_cart, fk_id_client =  :fk_id_client, typeUser_sale = :typeUser_sale";
             $where = "id_sale = :id_sale";
             //Criando a referência dos atributos pré-definos com os novos dados correspondentes do usuario que será alterado
                 
@@ -98,6 +98,8 @@ use App\Models\Entity\Product;
                 ":id_sale" => $sale->getid(), 
                 ":fk_id_cart" => $sale->getIdCart(),
                 ":fk_id_client" => $sale->getIdClient(),
+                ":typeUser_sale" => $sale->getTypeUser(),
+                
             );
             //Chama a função de alterar dados da classe BaseDAO
             return $this->update($this->table_name,$cols,$values,$where);

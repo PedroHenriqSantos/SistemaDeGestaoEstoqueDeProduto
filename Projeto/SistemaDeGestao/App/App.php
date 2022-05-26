@@ -12,7 +12,7 @@
         private $params;
         private $controller_name;
         private $controllersSet = ['user','category','product','cart'];
-        private $constrollersWithOutLogin = ['portfolio'];
+        private $constrollersWithOutLogin = ['portfolio','comment'];
         public function __construct(){
             $this->url();
         }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\DAO\ProductDAO;
+use App\Models\DAO\CommentDAO;
 use App\Models\Entity\Product;
 use App\Models\DAO\UserDAO;
 
@@ -27,6 +28,16 @@ class ProductController extends Controller
     }
     public function edit($params){
         $id = $params[0];
+        $productDAO = new ProductDAO();
+        $product = $productDAO->findById($id);
+        $this->setViewVar('product',$product); 
+        $categoryDAO = new CategoryController();
+        $this->setViewVar('categorys', $categoryDAO->get());
+        $this->render('Layout/Product/edit');
+    }
+
+    public function search(){
+        $id = $_POST['idSearch'];
         $productDAO = new ProductDAO();
         $product = $productDAO->findById($id);
         $this->setViewVar('product',$product); 
@@ -113,6 +124,8 @@ class ProductController extends Controller
             } 
             $params = array($_POST['id_product']);
             $this->edit($params);
-        }    
+        }
     }
+
+
 }

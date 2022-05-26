@@ -23,7 +23,7 @@ use App\Models\Entity\User;
             }else{
                 $_SESSION['logado'] = true;
                 $_SESSION['idUser'] = $user->getId();
-                $this->redirectToUrl("/user/register");
+                $this->redirectToUrl("/user/principal");
             }
         }
         
