@@ -19,7 +19,7 @@ if (isset($this->view_var["userLogin"])) {
     <?php foreach ($sales as $sale) {
 
     ?>
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-6 col-12">
         <div class="card text-white">
           <div class="card-body">
             <h5 class="card-title">Compra <?= $sale->id_sale ?></h5>

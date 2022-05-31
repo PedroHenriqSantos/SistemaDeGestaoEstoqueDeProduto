@@ -108,7 +108,7 @@
     public function updateByID(Product $product){
         try{
             //Atributos pré-definidos
-            $cols = "id_product = :id_product, name_product = :name_product, description_product =  :description_product, price_product = :price_product, image_product = :image_product, quantity_product = :quantity_product, fk_id_cat = :fk_id_cat, avaliation_product = :avaliation_product";
+            $cols = "id_product = :id_product, name_product = :name_product, description_product =  :description_product, price_product = :price_product, image_product = :image_product, quantity_product = :quantity_product, fk_id_cat = :fk_id_cat";
             $where = "id_product = :id_product";
             //Criando a referência dos atributos pré-definos com os novos dados correspondentes do usuario que será alterado
                 
@@ -120,7 +120,6 @@
                 ":quantity_product" => $product->getQuantity(),
                 ":image_product" => $product->getImage(),
                 ":fk_id_cat" => $product->getIdCategory(),
-                ":avaliation_product" => $product->getAvaliation()
             );
             //Chama a função de alterar dados da classe BaseDAO
             return $this->update($this->table_name,$cols,$values,$where);

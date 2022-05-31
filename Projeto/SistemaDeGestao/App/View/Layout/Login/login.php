@@ -62,7 +62,6 @@
 
     .btnLogin {
         padding: 0.8rem;
-        width: 20%;
         color: white;
         border: 0;
         border-radius: 10px;
@@ -83,9 +82,9 @@
         border-radius: 15px;
         outline: none;
         border: none;
-        width: 20%;
         background-color: #CC7200;
         color: white;
+
     }
 
     .inputAdd::placeholder {
@@ -94,5 +93,15 @@
 
     .inputAdd::focus {
         color: white;
+    }
+
+    @media screen and (max-width: 991px) {
+        .inputAdd {
+            width: 100%;
+        }
+
+        .btnLogin {
+            width: 100%;
+        }
     }
 </style>

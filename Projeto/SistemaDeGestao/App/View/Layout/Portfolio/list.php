@@ -15,10 +15,10 @@ $productsRanking = $this->view_var["productsRanking"];
             <?php
             foreach ($products as $product) { ?>
 
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-6 col-12 mb-4">
                     <a href="<?= 'http://' . APP_HOST . '/portfolio/productDetail/' . $product->getId() ?>" class="linkProduct" target="_blank">
                         <div class="boxProduct">
-                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
+                            <img src="<?= 'http://' . APP_HOST . '/App/Uploads/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
                             <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
                         </div>
@@ -37,24 +37,26 @@ $productsRanking = $this->view_var["productsRanking"];
             foreach ($productsRanking as $product) {
             ?>
 
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-6 col-12 mb-4">
                     <a href="<?= 'http://' . APP_HOST . '/portfolio/productDetail/' . $product->getId() ?>" class="linkProduct" target="_blank">
                         <div class="boxProduct">
-                            <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
+                            <img src="<?= 'http://' . APP_HOST . '/App/Uploads/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
                             <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
-                            <?php
-                            $countStarFull = 0;
-                            for ($i = 0; $i < 5; $i++) {
-                                if ($i < $product->rate) { ?>
-                                    <label class="starFull"> <i class="fas fa-star"></i> </label>
+                            <div>
                                 <?php
-                                    $countStarFull++;
-                                } else { ?>
-                                    <label class="starEmpty"> <i class="fas fa-star"></i> </label>
+                                $countStarFull = 0;
+                                for ($i = 0; $i < 5; $i++) {
+                                    if ($i < $product->rate) { ?>
+                                        <label class="starFull"> <i class="fas fa-star"></i> </label>
+                                    <?php
+                                        $countStarFull++;
+                                    } else { ?>
+                                        <label class="starEmpty"> <i class="fas fa-star"></i> </label>
 
-                            <?php }
-                            } ?>
+                                <?php }
+                                } ?>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -96,10 +98,12 @@ $productsRanking = $this->view_var["productsRanking"];
         background: #824700;
         border-radius: 6px;
         width: 100%;
-        height: 463px;
+        height: auto;
         margin-right: 1rem;
         text-align: center;
+        min-height: 460px;
         color: white;
+        padding: 0.5rem;
     }
 
     .boxProduct:hover {

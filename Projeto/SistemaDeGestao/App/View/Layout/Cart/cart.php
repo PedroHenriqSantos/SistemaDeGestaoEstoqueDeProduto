@@ -11,37 +11,35 @@ $products = $this->view_var["products"];
         </div>
         <form action="<?= 'http://' . APP_HOST . '/cart/sendCart' ?>" method="post">
             <div class="row">
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="text" name="name_client" class="inputAdd" placeholder="Nome">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="tel" name="phone_client" class="inputAdd" placeholder="Telefone">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="tel" name="email_client" class="inputAdd" placeholder="E-mail">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="tel" name="number_client" class="inputAdd" placeholder="Número">
                 </div>
 
-
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="text" name="district_client" class="inputAdd" placeholder="Bairro">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-6">
                     <input type="text" name="street_client" class="inputAdd" placeholder="Rua">
                 </div>
             </div>
+
+
 
             <div class="row mt-3">
                 <?php
                 $indexProducts = 0;
                 foreach ($products as $product) {
                 ?>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6 col-12 mb-4">
                         <div class="boxProduct">
                             <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
@@ -114,6 +112,8 @@ $products = $this->view_var["products"];
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+        margin-bottom: 1rem;
     }
 
     .quantityCart {
@@ -149,8 +149,9 @@ $products = $this->view_var["products"];
         height: auto;
         margin-right: 1rem;
         text-align: center;
+        min-height: 460px;
         color: white;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
 

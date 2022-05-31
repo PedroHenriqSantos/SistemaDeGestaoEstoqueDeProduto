@@ -20,24 +20,24 @@
         <div class="header">
             <div class="container containerPortfolio">
                 <div class="row">
-                    <div class="col-2 logo">
+                    <div class="col-lg-2 col-sm-12 logo">
                         <a href="<?= 'http://' . APP_HOST . '/portfolio/index' ?>">
                             <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
                         </a>
                     </div>
-                    <div class="col-4 logo">
+                    <div class="col-lg-4 col-sm-12 logo">
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12 marginTopHeader">
                         <div class="row">
-                            <div class="col-1 logo">
+                            <div class="col-lg-1 col-sm-12 logo">
                             </div>
-                            <div class="col-9">
+                            <div class="col-lg-9 col-sm-12">
                                 <form class="form-outline barra-pesquisa" action="<?= 'http://' . APP_HOST . '/portfolio/index' ?>" method="POST">
                                     <input type="text" name="search" id="search" class="searchInput porfolioSearch form-control " placeholder="Pesquisar" autocomplete="off">
                                     <button type="submit" class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                             </div>
-                            <div class="col-2">
+                            <div class="col-lg-2 col-sm-12 marginTopHeader">
                                 <span class="countCart"> <?= $this->view_var['countCart'] ?></span>
                                 <a href="<?= 'http://' . APP_HOST . '/cart/buy' ?>" id="carrinho"><i class="fa-solid fa-cart-plus"></i></a>
                             </div>
@@ -96,4 +96,10 @@
     .campo {
         color: #dc7f0d;
     }
+    @media screen and (max-width: 991px) {
+            .marginTopHeader{
+                margin-top: 1rem;
+            }
+        }
+    
 </style>

@@ -11,10 +11,10 @@ $comments = $this->view_var["comments"];
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6 col-12">
                 <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage() ?>" alt="imagem" id="imagem" class="imageProduct">
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-12">
                 <div class="col-12">
                     <h4 class="descriptionProduct"><?= $product->getDescription() ?></h4>
                 </div>
@@ -26,13 +26,13 @@ $comments = $this->view_var["comments"];
 
         </div>
         <div class="row">
-            <div class="col-4 inforProduct">
+            <div class="col-lg-4 col-12 inforProduct">
                 <h3>Preço: R$ <?= $product->getPrice() ?></h3>
             </div>
-            <div class="col-8"></div>
+            <div class="col-lg-8 col-12"></div>
         </div>
         <div class="row">
-            <div class="col-4 inforProduct">
+            <div class="col-lg-4 col-8 inforProduct">
                 <h3>Avaliação: </h3>
                 <form class="avaliacoes d-inline-block" action="<?= 'http://' . APP_HOST . '/avaliation/post' ?>" method="post">
                     <input type="text" class="hidden" id="fk_id_product" name="fk_id_product" value="<?= $product->getId() ?>" />
@@ -52,13 +52,13 @@ $comments = $this->view_var["comments"];
                 </form>
 
             </div>
-            <div class="col-8"></div>
+            <div class="col-lg-8 col-4"></div>
         </div>
         <div class="row">
-            <div class="col-4 inforProduct">
+            <div class="col-lg-4 col-12 inforProduct">
                 <h3>Restam: <?= $product->getQuantity() ?> Produtos</h3>
             </div>
-            <div class="col-8"></div>
+            <div class="col-lg-8 "></div>
         </div>
         <div class="row mt-5">
             <div class="col-12">
@@ -67,11 +67,11 @@ $comments = $this->view_var["comments"];
         </div>
         <?php foreach ($comments as $comment) { ?>
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-2">
+                <div class="col-lg-2 col-1"></div>
+                <div class="col-lg-2 col-3">
                     <img src="<?= 'http://' . APP_HOST . '/App/View/Images/user.png' ?>" alt="foto" id="comenta1">
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 col-8">
                     <div class="comentInput"> <?= $comment->getComment() ?> </div>
                 </div>
             </div>
@@ -85,13 +85,13 @@ $comments = $this->view_var["comments"];
         <div class="row mb-5">
             <form class="row" action="<?= 'http://' . APP_HOST . '/comment/save' ?>" method="post">
                 <input type="text" name="fk_id_product" value="<?= $product->getId() ?>" class="inputAdd hidden" placeholder="Produto">
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="comment_comment" class="inputAdd" placeholder="Comentário">
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="name_comment" class="inputAdd" placeholder="Nome">
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-12">
 
                     <button class="btn buttonAdd" id="bt_save_comment" name="bt_save_comment">Cadastrar Comentário</button>
                 </div>
@@ -166,7 +166,8 @@ $comments = $this->view_var["comments"];
         outline: none;
         border: none;
         background-color: #CC7200;
-
+        max-width: 100%;
+        margin-bottom: 1rem;
         color: white;
     }
 
@@ -237,6 +238,8 @@ $comments = $this->view_var["comments"];
         border-radius: 6px;
         margin-top: 1.3rem;
         cursor: pointer;
+        max-width: 100%;
+        margin-bottom: 1rem;
     }
 
     .buttonPlus:hover {

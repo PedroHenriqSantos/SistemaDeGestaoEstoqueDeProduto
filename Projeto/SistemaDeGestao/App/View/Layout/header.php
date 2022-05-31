@@ -27,34 +27,32 @@ if (isset($this->view_var["userLogin"])) {
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-3 logo">
+                    <div class="col-lg-3 col-sm-12 logo">
                         <a href="<?= 'http://' . APP_HOST . '/user/principal' ?>">
                             <img src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="logo">
                         </a>
                     </div>
-                    <div class="col-9 texto">
+                    <div class="col-lg-9 col-sm-12 texto">
                         <p>Olá <?= $nameUser ?>, Bem Vindo!</p>
                         <a class="btn logout" href="<?= 'http://' . APP_HOST . '/login/logout' ?>">Logout</a>
                         <a class="btn logout" href="<?= 'http://' . APP_HOST . '/portfolio/index' ?>">Ir para o Portfólio</a>
 
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="row menu">
-                        <div class="campo col-3">
+                <div class="row menu">
+                        <div class="campo col-lg-3 col-4">
                             <a href="<?= 'http://' . APP_HOST . '/product/list' ?>" class="linkMenu"> Produtos </a>
                         </div>
 
-                        <div class="campo col-3">
+                        <div class="campo col-lg-3 col-4">
                             <a href="<?= 'http://' . APP_HOST . '/category/list' ?>" class="linkMenu"> Categorias </a>
                         </div>
 
-                        <div class="campo col-3">
+                        <div class="campo col-lg-3 col-4">
                             <a href="<?= 'http://' . APP_HOST . '/user/list' ?>" class="linkMenu"> Usuários </a>
 
                         </div>
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -127,5 +125,11 @@ if (isset($this->view_var["userLogin"])) {
             background-color: #FFAB20;
             transition: .5s;
             color: white;
+        }
+
+        @media screen and (max-width: 991px) {
+            .texto{
+                text-align: center;
+            }
         }
     </style>

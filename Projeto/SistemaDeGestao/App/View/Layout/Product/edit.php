@@ -28,22 +28,19 @@ if(isset($this->view_var["userLogin"])){
                 <input type="file" class="inputFile" name="image_product" value="<?= $product->getImage() ?>" />
             </div>
             <div class="row mt-4  ">
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-4  col-6">
                     <input type="text" name="name_product" class="inputAdd" placeholder="nome" value="<?= $product->getName() ?>">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-4  col-6">
                     <input type="description" name="description_product" class="inputAdd" placeholder="descrição" value="<?= $product->getDescription() ?>">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-4  col-6">
                     <input type="text" name="price_product" class="inputAdd" placeholder="preço" value="<?= $product->getPrice() ?>">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-4  col-6">
                     <input type="number" name="quantity_product" class="inputAdd <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
                 </div>
-
-            </div>
-            <div class="row mt-4">
-                <div class="col-4">
+                <div class="col-lg-3 col-sm-4  col-6">
                     <select class="selectAdd" name="category_product" value="<?= $product->getIdCategory() ?>">
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
@@ -54,6 +51,7 @@ if(isset($this->view_var["userLogin"])){
                 </div>
 
             </div>
+
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Atualizar Produto</button>
             </section>
@@ -128,6 +126,8 @@ if(isset($this->view_var["userLogin"])){
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+        margin-bottom: 1rem;
     }
 
     .selectAdd {
@@ -139,6 +139,8 @@ if(isset($this->view_var["userLogin"])){
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+
     }
 
     .inputAdd::focus {

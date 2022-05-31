@@ -11,28 +11,25 @@
                     </div>
                     <div class="col-12 mt-3">
                         Adicione a imagem do produto
-                        
+
                     </div>
                 </a>
                 <input type="file" class="inputFile" name="image_product" value="" />
             </div>
             <div class="row mt-4  ">
-                <div class="col-3">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="name_product" class="inputAdd" placeholder="nome">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-4 col-6">
                     <input type="description" name="description_product" class="inputAdd" placeholder="descrição">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="price_product" class="inputAdd" placeholder="preço">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-4 col-6">
                     <input type="number" name="quantity_product" class="inputAdd" placeholder="Quantidade">
                 </div>
-
-            </div>
-            <div class="row mt-4">
-                <div class="col-4">
+                <div class="col-lg-4 col-12">
                     <select class="selectAdd" name="category_product">
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
@@ -41,7 +38,6 @@
                         ?>
                     </select>
                 </div>
-
             </div>
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Produto</button>
@@ -57,7 +53,7 @@
                 <?php } else { ?>
                     <div class="row mt-4">
                         <div class="alert alert-danger text-center" role="alert">
-                           <?= $this->view_var['error'] ?>
+                            <?= $this->view_var['error'] ?>
                         </div>
                     </div>
             <?php  }
@@ -109,6 +105,9 @@
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+        margin-bottom: 1rem;
+
     }
 
     .selectAdd {
@@ -120,6 +119,8 @@
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+
     }
 
     .inputAdd::focus {

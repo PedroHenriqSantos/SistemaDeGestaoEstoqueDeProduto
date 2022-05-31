@@ -94,6 +94,8 @@ $category = $this->view_var["category"];
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+
     }
 
     .inputAdd::focus {

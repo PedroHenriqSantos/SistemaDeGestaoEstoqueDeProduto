@@ -5,28 +5,27 @@
     <div class="row formAdd">
         <form action="<?= 'http://' . APP_HOST . '/user/post' ?>" method="post">
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="name_user" class="inputAdd" placeholder="nome">
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-6" >
                     <input type="password" name="password_user" class="inputAdd" placeholder="senha">
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <select class="selectAdd" name="function_user">
                         <option value="MASTER"> MASTER </option>
                         <option value="NORMAL"> NORMAL </option>
                     </select>
                 </div>
-
-            </div>
-            <div class="row mt-4">
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="email_user" class="inputAdd" placeholder="email">
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-6">
                     <input type="text" name="phone_user" class="inputAdd" placeholder="telefone">
                 </div>
+
             </div>
+
             <section class="enviar">
                 <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Categoria</button>
             </section>
@@ -69,6 +68,10 @@
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .selectAdd {
@@ -80,6 +83,8 @@
         border: none;
         background-color: #CC7200;
         color: white;
+        max-width: 100%;
+
     }
 
     .inputAdd::focus {
