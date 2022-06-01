@@ -48,7 +48,15 @@
                     ":name_user" => '%' . $name_user . '%' ,
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                $data =  $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                if (!$data) {
+                    return array();
+                }
+                if (count($data) > 0) {
+                    return $data[0];
+                }
+                return array();
+                
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -62,8 +70,15 @@
                     $sql .= " WHERE ".$where;
                 }
                 
-                $resut = $this->select($sql, $values); 
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                $resut = $this->select($sql, $values);
+                $data =  $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+                if (!$data) {
+                    return array();
+                }
+                if (count($data) > 0) {
+                    return $data;
+                }
+                return array(); 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -78,7 +93,14 @@
                     ":id_user" => $id, 
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,User::class)[0]; 
+                $data = $resut->fetchAll(\PDO::FETCH_CLASS,User::class);
+                if(!$data){
+                    return array();
+                }
+                if(count($data) > 0){
+                    return $data[0]; 
+                }
+                return array();
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -97,10 +119,13 @@
                 
                 $resut = $this->select($sql, $values);
                 $data =  $resut->fetchAll(\PDO::FETCH_CLASS,User::class);
-                if(count($data) > 0){
+                if (!$data) {
+                    return array();
+                }
+                if (count($data) > 0) {
                     return $data[0];
-                } 
-                return false;
+                }
+                return array(); 
     
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
@@ -147,5 +172,3 @@
         }
 
 }
-
-?>

@@ -55,6 +55,7 @@ use App\Models\Entity\Comment;
                 setcookie("Carrinho", json_encode($products), time() + 3600,"/");
             }
         }
+        $this->setViewVar('successBuy',"Produto Cadastrado Com Sucesso");
         $this->productDetail($params);
     }
 

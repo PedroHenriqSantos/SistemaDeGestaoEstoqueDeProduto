@@ -61,8 +61,8 @@ if (isset($this->view_var["userLogin"])) {
                     <p></p>
                 </div>
                 <div class="col-2">
-                    <a class="linkButton <?= $hiddenRegister ?>" href="<?= 'http://' . APP_HOST . '/product/delete/' . $product->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
-                    <a class="linkButton <?= $hiddenRegister ?> " href="<?= 'http://' . APP_HOST . '/product/edit/' . $product->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="linkButton" href="<?= 'http://' . APP_HOST . '/product/delete/' . $product->getId() ?>"><i class="fa-solid fa-square-minus"></i></a>
+                    <a class="linkButton  " href="<?= 'http://' . APP_HOST . '/product/edit/' . $product->getId() ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
                 </div>
             </div>
         <?php } ?>

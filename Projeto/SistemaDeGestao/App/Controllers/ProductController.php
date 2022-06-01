@@ -71,9 +71,8 @@ class ProductController extends Controller
         return $filename;
     }
     public function validateFieldsWithFile($fields) {
-
-        if(!isset($_FILES["image_product"]["name"])){
-            $this->setViewVar('error','Upload da imagem não foi possível realizar');
+        if(!isset($_FILES["image_product"]["name"]) || empty($_FILES["image_product"]["name"])){
+            $this->setViewVar('error','Não foi possível realizar upload da imagem');
             return false;
         }
         return $this->validateFields($fields);
@@ -108,7 +107,6 @@ class ProductController extends Controller
         if(isset($_POST['bt_save'])){
             $productDAO = new ProductDAO();
             $product = new Product();
-
             if($this->validateFields($productDAO->getFields())){
                 $product->setId($_POST['id_product']);
                 $product->setName($_POST['name_product']);
@@ -116,8 +114,13 @@ class ProductController extends Controller
                 $product->setPrice($_POST['price_product']);
                 $product->setQuantity($_POST['quantity_product']);
                 $product->setIdCategory($_POST['category_product']);
-                $uploadImage = $this->uploadImage($_FILES);
-                $product->setImage($uploadImage);
+                if(empty($_FILES["image_product"]["name"])){
+                    $product->setImage($_POST['image_product']);
+                }else{
+                    $uploadImage = $this->uploadImage($_FILES);
+                    $product->setImage($uploadImage);
+                }
+
                 $productDAO->updateByID($product);
                 $this->setViewVar('error','');
             } 

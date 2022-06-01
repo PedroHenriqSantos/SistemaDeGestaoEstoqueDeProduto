@@ -25,7 +25,8 @@ if(isset($this->view_var["userLogin"])){
                         <p class="currentImageText"> Atual: <?=  $product->getImage()  ?> </p>
                     </div>
                 </a>
-                <input type="file" class="inputFile" name="image_product" value="<?= $product->getImage() ?>" />
+                <input type="file" class="inputFile hidden" name="image_product" value="<?= $product->getImage() ?>" />
+                <input type="text" class="hidden" name="image_product" value="<?= $product->getImage() ?>" />
             </div>
             <div class="row mt-4  ">
                 <div class="col-lg-3 col-sm-4  col-6">
@@ -35,10 +36,10 @@ if(isset($this->view_var["userLogin"])){
                     <input type="description" name="description_product" class="inputAdd" placeholder="descrição" value="<?= $product->getDescription() ?>">
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="text" name="price_product" class="inputAdd" placeholder="preço" value="<?= $product->getPrice() ?>">
+                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço" value="<?= $product->getPrice() ?>">
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="number" name="quantity_product" class="inputAdd <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
+                    <input type="number" name="quantity_product" class="inputAdd inputPositive <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
                     <select class="selectAdd" name="category_product" value="<?= $product->getIdCategory() ?>">

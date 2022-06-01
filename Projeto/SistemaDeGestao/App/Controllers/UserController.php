@@ -45,10 +45,13 @@
                 $updateSale = $saleDao->findById($idSale);
                 $updateSale->setTypeuser("MASTER");
                 $saleDao->updateByID( $updateSale);
+                $this->setViewVar('successChange',"Venda enviada para o master");
             }else if($userType === "MASTER"){
                 $sale = new Sale();
                 $sale->setId($idSale);
                 $saleDao->deleteByID($sale);
+                $this->setViewVar('successChange',"Venda finalizada");
+
             }
             $this->principal();
 

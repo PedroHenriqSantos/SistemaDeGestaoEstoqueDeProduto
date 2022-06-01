@@ -33,7 +33,7 @@ if (isset($this->view_var["userLogin"])) {
                         </a>
                     </div>
                     <div class="col-lg-9 col-sm-12 texto">
-                        <p>Olá <?= $nameUser ?>, Bem Vindo!</p>
+                        <p class="textHello">Olá <?= $nameUser ?>, Bem Vindo!</p>
                         <a class="btn logout" href="<?= 'http://' . APP_HOST . '/login/logout' ?>">Logout</a>
                         <a class="btn logout" href="<?= 'http://' . APP_HOST . '/portfolio/index' ?>">Ir para o Portfólio</a>
 
@@ -101,7 +101,9 @@ if (isset($this->view_var["userLogin"])) {
             width: 100%;
         }
 
-
+.textHello{
+    padding: 0.5rem;
+}
 
         .campo {
             color: #dc7f0d;

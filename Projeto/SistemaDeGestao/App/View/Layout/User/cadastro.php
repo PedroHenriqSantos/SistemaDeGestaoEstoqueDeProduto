@@ -18,7 +18,7 @@
                     </select>
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="email_user" class="inputAdd" placeholder="email">
+                    <input type="email" name="email_user" class="inputAdd" placeholder="email">
                 </div>
                 <div class="col-lg-4 col-6">
                     <input type="text" name="phone_user" class="inputAdd" placeholder="telefone">
@@ -27,7 +27,7 @@
             </div>
 
             <section class="enviar">
-                <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Categoria</button>
+                <button class="btn buttonAdd" id="bt_save" name="bt_save">Cadastrar Usuário</button>
             </section>
             <?php
             if (isset($this->view_var['error'])) {

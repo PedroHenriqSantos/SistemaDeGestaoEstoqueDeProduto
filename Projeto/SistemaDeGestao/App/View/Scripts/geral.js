@@ -43,3 +43,33 @@ $('.minimusQuantity').on('click',function(e){
     $(this).siblings(".quantityCart").val(intValue - 1); 
 });
 
+$('.inputPositive').on('change',function(e){
+    e.preventDefault();
+    testeIfInputIsPositive($(this));
+});
+
+$('.inputOnlyPositive').on('change',function(e){
+    e.preventDefault();
+    testeIfInputIsOnlyPositive($(this));
+});
+
+$('.inputFile').on('change',function(e){
+    e.preventDefault();
+    $(".currentImageText").html("Atual: " + $(this).val());
+});
+function testeIfInputIsOnlyPositive(element){
+    let value = element.val();
+    let intValue = parseInt(value);
+    if(intValue <= 0){
+        element.val(1);
+        return; 
+    }
+}
+function testeIfInputIsPositive(element){
+    let value = element.val();
+    let intValue = parseInt(value);
+    if(intValue <= 0){
+        element.val(0);
+        return; 
+    }
+}

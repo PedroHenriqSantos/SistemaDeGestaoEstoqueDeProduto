@@ -10,7 +10,7 @@ class Product{
     private $description_product;
     private $price_product;
     private $quantity_product;
-    private $idCategory;
+    private $fk_id_cat;
     private $image_product;
     private $avaliation_product;
 
@@ -85,15 +85,20 @@ class Product{
 
     public function getIdCategory()
     {
-        return $this->idCategory;
+        return $this->fk_id_cat;
     }
 
 
-    public function setIdCategory($idCategory)
+    public function setIdCategory($fk_id_cat)
     {
-        $this->idCategory = $idCategory;
+        $this->fk_id_cat = $fk_id_cat;
 
         return $this;
+    }
+    public function getCategoryName(){
+        $categoryDao = new \App\Models\DAO\CategoryDAO();
+        $category = $categoryDao->findById($this->fk_id_cat);
+        return $category->getName();
     }
 
     public function getImage()

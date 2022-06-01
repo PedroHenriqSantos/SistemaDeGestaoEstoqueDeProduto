@@ -43,8 +43,16 @@
                     ":id" => $id, 
                 );
                 $resut = $this->select($sql, $values);
-                return $resut->fetchAll(\PDO::FETCH_CLASS,Cart::class)[0]; 
-    
+                $data = $resut->fetchAll(\PDO::FETCH_CLASS,Cart::class);
+                if (!$data) {
+                    return array();
+                }
+                if (count($data) > 0) {
+                    return $data[0];
+                }
+             
+                return array(); 
+
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
             }

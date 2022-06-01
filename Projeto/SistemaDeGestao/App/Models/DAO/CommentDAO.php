@@ -45,10 +45,13 @@
                 );
                 $resut = $this->select($sql, $values);
                 $data = $resut->fetchAll(\PDO::FETCH_CLASS,Comment::class);
-                if(count($data) > 0){
-                    return  $data ; 
-                } 
-                return array();    
+                if (!$data) {
+                    return array();
+                }
+                if (count($data) > 0) {
+                    return $data;
+                }  
+                return array();
             }catch(PDOException $error ){
                 echo "ERROR: ".$error->getMessage();
             }

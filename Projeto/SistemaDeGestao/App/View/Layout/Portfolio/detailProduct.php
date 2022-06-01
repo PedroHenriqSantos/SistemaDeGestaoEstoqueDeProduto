@@ -12,7 +12,7 @@ $comments = $this->view_var["comments"];
         </div>
         <div class="row">
             <div class="col-lg-6 col-12">
-                <img src="<?= 'http://' . APP_HOST . '/App/View/Images/' . $product->getImage() ?>" alt="imagem" id="imagem" class="imageProduct">
+                <img src="<?= 'http://' . APP_HOST . '/App/Uploads/' . $product->getImage() ?>" alt="imagem" id="imagem" class="imageProduct">
             </div>
             <div class="col-lg-6 col-12">
                 <div class="col-12">
@@ -20,8 +20,15 @@ $comments = $this->view_var["comments"];
                 </div>
                 <div class="col-12 d-flex justify-content-center">
                     <a href="<?= 'http://' . APP_HOST . '/portfolio/saveCart/' . $product->getId() ?>" class="btn buttonBuy">Comprar</a>
-
                 </div>
+                <?php
+                if (isset($this->view_var['successBuy'])) { ?>
+                    <div class="row mt-4">
+                        <div class="alert alert-success text-center" role="alert">
+                            <?= $this->view_var['successBuy'] ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
 
         </div>

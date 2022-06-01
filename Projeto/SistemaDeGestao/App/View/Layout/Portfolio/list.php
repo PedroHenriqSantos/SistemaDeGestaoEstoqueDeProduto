@@ -13,14 +13,15 @@ $productsRanking = $this->view_var["productsRanking"];
         </div>
         <div class="row">
             <?php
-            foreach ($products as $product) { ?>
+            foreach ($products as $product) {?>
 
                 <div class="col-lg-3 col-sm-6 col-12 mb-4">
                     <a href="<?= 'http://' . APP_HOST . '/portfolio/productDetail/' . $product->getId() ?>" class="linkProduct" target="_blank">
                         <div class="boxProduct">
                             <img src="<?= 'http://' . APP_HOST . '/App/Uploads/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
-                            <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
+                            <p class="imagePortfolio">Preço: R$ <?= $product->getPrice()  ?></p>
+                            <p class="imagePortfolio">Categoria: <?= $product->getCategoryName()  ?></p>
                         </div>
                     </a>
                 </div>
@@ -42,7 +43,8 @@ $productsRanking = $this->view_var["productsRanking"];
                         <div class="boxProduct">
                             <img src="<?= 'http://' . APP_HOST . '/App/Uploads/' . $product->getImage()  ?>" alt="pao" class="imagePortfolio">
                             <h3 class="imagePortfolio"><?= $product->getName() ?></h3>
-                            <p class="imagePortfolio">Preço: <?= $product->getPrice()  ?></p>
+                            <p class="imagePortfolio">Preço: R$ <?= $product->getPrice()  ?></p>
+                            <p class="imagePortfolio">Categoria: <?= $product->getCategoryName()  ?></p>
                             <div>
                                 <?php
                                 $countStarFull = 0;
@@ -91,6 +93,8 @@ $productsRanking = $this->view_var["productsRanking"];
     .imagePortfolio {
         margin-bottom: 1rem;
         width: 100%;
+        height: 100%;
+        max-height: 163px;
     }
 
     .boxProduct {

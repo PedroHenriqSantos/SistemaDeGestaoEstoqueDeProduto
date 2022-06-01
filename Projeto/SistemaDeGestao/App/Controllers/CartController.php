@@ -14,6 +14,7 @@ use App\Models\DAO\ProductDAO;
 
     public function buy(){
         $products = array();
+
         if( isset($_COOKIE["Carrinho"]) && $_COOKIE["Carrinho"] != null){  
                 $products = $this->getProductsInCookie(json_decode($_COOKIE["Carrinho"]));
         }
@@ -58,6 +59,8 @@ use App\Models\DAO\ProductDAO;
                     $this->setViewVar('error','');
                 }
                 unset($_COOKIE['Carrinho']); 
+                setcookie("Carrinho",json_encode(array()), time() + 3600,"/");
+
             }
 
         }

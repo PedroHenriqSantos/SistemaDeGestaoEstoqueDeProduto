@@ -11,6 +11,7 @@
                     </div>
                     <div class="col-12 mt-3">
                         Adicione a imagem do produto
+                        <p class="currentImageText"> Atual:  </p>
 
                     </div>
                 </a>
@@ -24,10 +25,10 @@
                     <input type="description" name="description_product" class="inputAdd" placeholder="descrição">
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="price_product" class="inputAdd" placeholder="preço">
+                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço">
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="number" name="quantity_product" class="inputAdd" placeholder="Quantidade">
+                    <input type="number" name="quantity_product" class="inputAdd inputPositive" value="1" placeholder="Quantidade">
                 </div>
                 <div class="col-lg-4 col-12">
                     <select class="selectAdd" name="category_product">
@@ -68,7 +69,12 @@
     form {
         width: 100%;
     }
+    .currentImageText{
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: 0.5rem;
 
+    }
     .formAdd {
         margin-top: 2rem;
     }
@@ -78,7 +84,7 @@
         color: white;
         border: none;
         width: 200px;
-        height: 150px;
+        height: auto;
         border-radius: 10px;
         text-align: center;
         cursor: pointer;

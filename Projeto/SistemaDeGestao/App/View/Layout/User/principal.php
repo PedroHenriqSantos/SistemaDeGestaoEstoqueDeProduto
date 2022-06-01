@@ -15,6 +15,14 @@ if (isset($this->view_var["userLogin"])) {
   <div class="row">
     <h1 class="titleList">Lista de Compras</h1>
   </div>
+  <?php
+  if (isset($this->view_var['successChange'])) { ?>
+    <div class="row mt-4">
+      <div class="alert alert-success text-center" role="alert">
+        <?= $this->view_var['successChange'] ?>
+      </div>
+    </div>
+  <?php } ?>
   <div class="row card_compras">
     <?php foreach ($sales as $sale) {
 
