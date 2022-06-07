@@ -13,7 +13,7 @@ if(isset($this->view_var["userLogin"])){
         <h1 class="titleList">Editar Produto</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/product/update' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/product/update' ?>" method="post" enctype="multipart/form-data" class="formProductInsert">
             <input type="text" name="id_product" class="hidden" placeholder="nome" value="<?= $product->getId() ?>">
             <div class="row text-center justify-content-center">
                 <a href="#" class="addImageButton justify-content-center">
@@ -25,24 +25,24 @@ if(isset($this->view_var["userLogin"])){
                         <p class="currentImageText"> Atual: <?=  $product->getImage()  ?> </p>
                     </div>
                 </a>
-                <input type="file" class="inputFile hidden" name="image_product" value="<?= $product->getImage() ?>" />
-                <input type="text" class="hidden" name="image_product" value="<?= $product->getImage() ?>" />
+                <input type="file" class="inputFile" name="image_product" value="<?= $product->getImage() ?>" required/>
+                <input type="text" class="hidden " name="image_product" value="<?= $product->getImage() ?>" />
             </div>
             <div class="row mt-4  ">
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="text" name="name_product" class="inputAdd" placeholder="nome" value="<?= $product->getName() ?>">
+                    <input type="text" name="name_product" class="inputAdd" placeholder="nome" value="<?= $product->getName() ?>" required>
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="description" name="description_product" class="inputAdd" placeholder="descrição" value="<?= $product->getDescription() ?>">
+                    <input type="description" name="description_product" class="inputAdd" placeholder="descrição" value="<?= $product->getDescription() ?>" required>
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço" value="<?= $product->getPrice() ?>">
+                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço" value="<?= $product->getPrice() ?>" required>
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <input type="number" name="quantity_product" class="inputAdd inputPositive <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>">
+                    <input type="number" name="quantity_product" class="inputAdd inputPositive <?= $hiddenQuantity ?>" placeholder="Quantidade" value="<?= $product->getQuantity() ?>" required> 
                 </div>
                 <div class="col-lg-3 col-sm-4  col-6">
-                    <select class="selectAdd" name="category_product" value="<?= $product->getIdCategory() ?>">
+                    <select class="selectAdd" name="category_product" value="<?= $product->getIdCategory() ?>" required>
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
                             <option value="<?= $category->getId() ?>"> <?= $category->getName() ?> </option>
@@ -115,7 +115,7 @@ if(isset($this->view_var["userLogin"])){
     }
 
     .inputFile {
-        display: none;
+        opacity: 0;
     }
 
     .inputAdd {

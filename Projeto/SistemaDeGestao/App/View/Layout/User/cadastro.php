@@ -3,25 +3,25 @@
         <h1 class="titleList">Cadastro de usuário</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/user/post' ?>" method="post">
+        <form action="<?= 'http://' . APP_HOST . '/user/post' ?>" method="post" class="formUserInsert">
             <div class="row">
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="name_user" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_user" class="inputAdd" placeholder="nome" required>
                 </div>
                 <div class="col-lg-4 col-6" >
-                    <input type="password" name="password_user" class="inputAdd" placeholder="senha">
+                    <input type="password" name="password_user" class="inputAdd" placeholder="senha" required>
                 </div>
                 <div class="col-lg-4 col-6">
-                    <select class="selectAdd" name="function_user">
+                    <select class="selectAdd" name="function_user" required>
                         <option value="MASTER"> MASTER </option>
                         <option value="NORMAL"> NORMAL </option>
                     </select>
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="email" name="email_user" class="inputAdd" placeholder="email">
+                    <input type="email" name="email_user" class="inputAdd" placeholder="email" required>
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="phone_user" class="inputAdd" placeholder="telefone">
+                    <input type="tel" name="phone_user" class="inputAdd phone-mask" placeholder="telefone" required>
                 </div>
 
             </div>
@@ -84,6 +84,7 @@
         background-color: #CC7200;
         color: white;
         max-width: 100%;
+        width: 100%;
 
     }
 

@@ -4,15 +4,15 @@
             <img class="logo" src="<?= 'http://' . APP_HOST . '/App/View/Images/Logo.png' ?>" alt="imagem">
         </div>
     </div>
-    <form method="post" action="<?= 'http://' . APP_HOST . '/login/login' ?>">
+    <form method="post" action="<?= 'http://' . APP_HOST . '/login/login' ?>" class="formLogin">
         <div class="row mt-3">
             <div class="col-12 text-center">
-                <input type="text" name="email_user" class="inputAdd" placeholder="email">
+                <input type="email" name="email_user" class="inputAdd" placeholder="email" required>
             </div>
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <input type="password" name="password_user" class="inputAdd" placeholder="password">
+                <input type="password" name="password_user" class="inputAdd" placeholder="password" required>
             </div>
         </div>
         <div class="row">
@@ -76,6 +76,7 @@
     }
 
     .inputAdd {
+        display: inline-block;
         margin-top: 1rem;
         padding: 1rem;
         outline: none;

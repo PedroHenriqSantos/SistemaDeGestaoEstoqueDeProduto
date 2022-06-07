@@ -90,13 +90,13 @@ $comments = $this->view_var["comments"];
             </div>
         </div>
         <div class="row mb-5">
-            <form class="row" action="<?= 'http://' . APP_HOST . '/comment/save' ?>" method="post">
-                <input type="text" name="fk_id_product" value="<?= $product->getId() ?>" class="inputAdd hidden" placeholder="Produto">
+            <form class="row" action="<?= 'http://' . APP_HOST . '/comment/save' ?>" id="formComment" method="post">
+                <input type="text" name="fk_id_product" value="<?= $product->getId() ?>" class="inputAdd hidden" placeholder="Produto" required>
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="comment_comment" class="inputAdd" placeholder="Comentário">
+                    <input type="text" name="comment_comment" class="inputAdd" placeholder="Comentário" required>
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="name_comment" class="inputAdd" placeholder="Nome">
+                    <input type="text" name="name_comment" class="inputAdd" placeholder="Nome" required>
                 </div>
                 <div class="col-lg-4 col-12">
 
@@ -224,6 +224,8 @@ $comments = $this->view_var["comments"];
     .descriptionProduct {
         color: #824700;
         font-size: 2rem;
+        margin-top: 1rem;
+        text-align: center;
     }
 
     .titlePortfolio {

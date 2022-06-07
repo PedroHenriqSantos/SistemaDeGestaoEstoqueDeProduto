@@ -3,10 +3,10 @@
         <h1 class="titleList">Cadastro de Categoria</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/category/post' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/category/post' ?>" method="post" enctype="multipart/form-data" class="formCategoryInsert">
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name_category" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_category" class="inputAdd" placeholder="nome" required>
                 </div>
 
                 <section class="enviar">

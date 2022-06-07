@@ -6,11 +6,11 @@ $category = $this->view_var["category"];
         <h1 class="titleList">Editar Categoria</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/category/update' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/category/update' ?>" method="post" enctype="multipart/form-data" class="formCategoryInsert">
             <input type="text" name="id_category" class="hidden" placeholder="nome" value="<?= $category->getId() ?>">
             <div class="row mt-4  ">
                 <div class="col-3">
-                    <input type="text" name="name_category" class="inputAdd" value="<?= $category->getName() ?>" placeholder="nome" />
+                    <input type="text" name="name_category" class="inputAdd" value="<?= $category->getName() ?>" placeholder="nome" required/>
                 </div>
 
                 <section class="enviar">

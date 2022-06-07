@@ -14,26 +14,26 @@ $products = $this->view_var["products"];
         if (count($products)) { ?>
 
 
-            <form action="<?= 'http://' . APP_HOST . '/cart/sendCart' ?>" method="post">
+            <form action="<?= 'http://' . APP_HOST . '/cart/sendCart' ?>" method="post" class="formCart">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-                        <input type="text" name="name_client" class="inputAdd" placeholder="Nome">
+                        <input type="text" name="name_client" class="inputAdd" placeholder="Nome" required>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <input type="tel" name="phone_client" class="inputAdd" placeholder="Telefone">
+                        <input type="tel" name="phone_client" class="inputAdd phone-mask" placeholder="Telefone" required>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <input type="email" name="email_client" class="inputAdd" placeholder="E-mail">
+                        <input type="email" name="email_client" class="inputAdd" placeholder="E-mail" required>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <input type="text" name="number_client" class="inputAdd" placeholder="Número">
+                        <input type="text" name="number_client" class="inputAdd" placeholder="Número" required>
                     </div>
 
                     <div class="col-lg-3 col-6">
-                        <input type="text" name="district_client" class="inputAdd" placeholder="Bairro">
+                        <input type="text" name="district_client" class="inputAdd" placeholder="Bairro" required>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <input type="text" name="street_client" class="inputAdd" placeholder="Rua">
+                        <input type="text" name="street_client" class="inputAdd" placeholder="Rua" required>
                     </div>
                 </div>
 

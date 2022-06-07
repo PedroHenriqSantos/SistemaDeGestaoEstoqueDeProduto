@@ -6,18 +6,18 @@ $user = $this->view_var["user"];
         <h1 class="titleList">Editar Usuário</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/user/update' ?>" method="post">
-            <input type="text" name="id_user" class="hidden" placeholder="nome" value="<?= $user->getId() ?>">
+        <form action="<?= 'http://' . APP_HOST . '/user/update' ?>" method="post" class="formUserInsert">
+            <input type="text" name="id_user" class="hidden" placeholder="nome" value="<?= $user->getId() ?>" >required
 
             <div class="row">
                 <div class="col-4">
-                    <input type="text" name="name_user" class="inputAdd" placeholder="nome" value="<?= $user->getName() ?>">
+                    <input type="text" name="name_user" class="inputAdd" placeholder="nome" value="<?= $user->getName() ?>" required>
                 </div>
                 <div class="col-4">
-                    <input type="password" name="password_user" class="inputAdd" placeholder="senha" value="<?= $user->getPassword() ?>">
+                    <input type="password" name="password_user" class="inputAdd" placeholder="senha" value="<?= $user->getPassword() ?>" required>
                 </div>
                 <div class="col-4">
-                    <select class="selectAdd" name="function_user" value="<?= $user->getFunction() ?>">
+                    <select class="selectAdd" name="function_user" value="<?= $user->getFunction() ?>" required>
                         <option value="MASTER"> MASTER </option>
                         <option value="NORMAL"> NORMAL </option>
                     </select>
@@ -26,10 +26,10 @@ $user = $this->view_var["user"];
             </div>
             <div class="row mt-4">
                 <div class="col-4">
-                    <input type="text" name="email_user" class="inputAdd" placeholder="email" value="<?= $user->getEmail() ?>">
+                    <input type="email" name="email_user" class="inputAdd" placeholder="email" value="<?= $user->getEmail() ?>" required>
                 </div>
                 <div class="col-4">
-                    <input type="text" name="phone_user" class="inputAdd" placeholder="telefone" value="<?= $user->getPhone() ?>">
+                    <input type="tel" name="phone_user" class="inputAdd phone-mask" placeholder="telefone" value="<?= $user->getPhone() ?>" required>
                 </div>
             </div>
             <section class="enviar">

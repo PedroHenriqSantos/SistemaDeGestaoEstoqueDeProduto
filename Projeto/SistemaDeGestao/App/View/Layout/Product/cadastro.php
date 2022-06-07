@@ -3,7 +3,7 @@
         <h1 class="titleList">Cadastro de Produto</h1>
     </div>
     <div class="row formAdd">
-        <form action="<?= 'http://' . APP_HOST . '/product/post' ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= 'http://' . APP_HOST . '/product/post' ?>" method="post" enctype="multipart/form-data" class="formProductInsert">
             <div class="row text-center justify-content-center">
                 <a href="#" class="addImageButton justify-content-center">
                     <div class="col-12 mt-3">
@@ -15,23 +15,23 @@
 
                     </div>
                 </a>
-                <input type="file" class="inputFile" name="image_product" value="" />
+                <input type="file" class="inputFile" name="image_product" value="" required  />
             </div>
             <div class="row mt-4  ">
                 <div class="col-lg-4 col-6">
-                    <input type="text" name="name_product" class="inputAdd" placeholder="nome">
+                    <input type="text" name="name_product" class="inputAdd" placeholder="nome" required >
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="description" name="description_product" class="inputAdd" placeholder="descrição">
+                    <input type="description" name="description_product" class="inputAdd" placeholder="descrição" required >
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço">
+                    <input type="number" name="price_product" class="inputAdd inputPositive" placeholder="preço" required >
                 </div>
                 <div class="col-lg-4 col-6">
-                    <input type="number" name="quantity_product" class="inputAdd inputPositive" value="1" placeholder="Quantidade">
+                    <input type="number" name="quantity_product" class="inputAdd inputPositive" value="1" placeholder="Quantidade" required >
                 </div>
                 <div class="col-lg-4 col-12">
-                    <select class="selectAdd" name="category_product">
+                    <select class="selectAdd" name="category_product" required >
                         <?php
                         foreach ($this->view_var['categorys'] as $category) { ?>
                             <option value="<?= $category->getId() ?>"> <?= $category->getName() ?> </option>
@@ -99,7 +99,7 @@
     }
 
     .inputFile {
-        display: none;
+        opacity: 0;
     }
 
     .inputAdd {
