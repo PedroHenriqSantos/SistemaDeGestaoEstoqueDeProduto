@@ -47,13 +47,16 @@
                 $values = array(
                     ":name_user" => '%' . $name_user . '%' ,
                 );
+
                 $resut = $this->select($sql, $values);
                 $data =  $resut->fetchAll(\PDO::FETCH_CLASS,User::class); 
+
                 if (!$data) {
                     return array();
                 }
+
                 if (count($data) > 0) {
-                    return $data[0];
+                    return $data;
                 }
                 return array();
                 

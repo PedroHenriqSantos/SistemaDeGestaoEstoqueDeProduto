@@ -16,7 +16,6 @@
         }
         public function list(){
             $userDAO = new UserDAO();
-
             if(isset($_POST["search"])){
                 $users = $userDAO->findByName($_POST["search"]);
             }else{

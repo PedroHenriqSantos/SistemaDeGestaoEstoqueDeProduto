@@ -7,7 +7,7 @@ $user = $this->view_var["user"];
     </div>
     <div class="row formAdd">
         <form action="<?= 'http://' . APP_HOST . '/user/update' ?>" method="post" class="formUserInsert">
-            <input type="text" name="id_user" class="hidden" placeholder="nome" value="<?= $user->getId() ?>" >required
+            <input type="text" name="id_user" class="hidden" placeholder="nome" value="<?= $user->getId() ?>" >
 
             <div class="row">
                 <div class="col-4">
